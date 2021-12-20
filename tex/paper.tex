@@ -1,0 +1,38 @@
+\documentclass{article}[a4paper]
+\usepackage[pdftex]{hyperref}
+\usepackage[backend=bibtex,sorting=none]{biblatex}
+\addbibresource{paper.bib}
+
+\newcommand{\bitem}[2]{
+    \item[\cite{#1}]
+        \citetitle{#1}, \citeauthor{#1}, \citeyear{#1}
+        \newline
+        {#2}
+}
+
+\begin{document}
+
+\begin{itemize}
+    \bitem{fourrier_methodological_2020}{Summary}
+    \bitem{list_web_2017}{Summary}
+    \bitem{demelo_etymological_2014}{Summary}
+    \bitem{wettig_using_2012}{Summary}
+    \bitem{ciobanu_etymological_2014}{Summary}
+    \bitem{nouri_alignment_2016}{Summary}
+    \bitem{dash_designing_2013}{Summary}
+    \bitem{pyysalo_proto_2017}{Summary}
+    \bitem{wu_2021_sequence}{Summary}
+    \bitem{wu_computational_2020}{Summary}
+    \bitem{zhou_density_2019}{Summary}
+    \bitem{patra_bilingual_2019}{Summary}
+    \bitem{beinborn_semantic_2020}{Summary}
+    \bitem{cristea_towards_2021}{Summary}
+    \bitem{bowers_deep_2016}{Summary}
+    \bitem{mericli_annotating_2015}{Summary}
+    \bitem{bhowmik_leveraging_2021}{Summary}
+    \bitem{cheng_towards_2020}{Summary}
+\end{itemize}
+
+\printbibliography
+
+\end{document}
