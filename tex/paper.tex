@@ -3,17 +3,20 @@
 \usepackage[backend=bibtex,sorting=none]{biblatex}
 \addbibresource{paper.bib}
 
-\newcommand{\bitem}[2]{
+\newcommand{\bitem}[3]{
     \item[\cite{#1}]
         \citetitle{#1}, \citeauthor{#1}, \citeyear{#1}
         \newline
-        \textbf{Summary}: {#2}
-}
+        \textbf{Gist}: {#2}
+        \newline
+        \textbf{Summary}: {#3} }
 
 \begin{document}
 
 \begin{itemize}
     \bitem{noraset_definition_2016}%
+    {Describe the problem of definition modelling and generate defintions from
+        an input word with RNN model.}%
     {Definition modeling was intially described by
         \citeauthor{noraset_definition_2016}. Their research is based on a
         recurrent neural network language model \cite{mikolov_recurrent_2010}
@@ -22,18 +25,23 @@
         on the first step.}
 
     \bitem{chang_what_2019}%
+    {Instead of generating text, use a classification approach based on
+        $k$-nn.}%
     {\citeauthor{chang_what_2019} explore contextualized embedding for
         definition modeling. They reformulate the problem of definition modeling
         from text generation to text classification. Their results show
         state-of-the-art performance on the task of definition modeling.}
 
     \bitem{washio_bridging_2019}%
+    {Use context sentences to generate better definitions.}%
     {\citeauthor{washio_bridging_2019} proposed a method for context-based
         definition modeling that considers the semantic relations between both
         the word to be defined and the words in the definition. They apply
         semantic information to both the definition encoder and decoder.}
 
     \bitem{barba_exemplification_2021}%
+    {Reverse definition modelling - generate examples (context sentences) from
+        definition.}%
     {\citeauthor{barba_exemplification_2021} introduce exemplification modeling,
         an adjacent problem to definition modeling that uses a definition
         embedding to generate possible example sentences. They use a
@@ -41,59 +49,41 @@
         performance. Their problem is similar in that they use the definition as
         context to create example sentences.}
 
-    \bitem{fourrier_methodological_2020}%
-    {Summary}
+    % \bitem{fourrier_methodological_2020}% {Summary}
 
-    \bitem{list_web_2017}%
-    {Summary}
+    % \bitem{list_web_2017}% {Summary}
 
-    \bitem{demelo_etymological_2014}%
-    {Summary}
+    % \bitem{demelo_etymological_2014}% {Summary}
 
-    \bitem{wettig_using_2012}%
-    {Summary}
+    % \bitem{wettig_using_2012}% {Summary}
 
-    \bitem{ciobanu_etymological_2014}%
-    {Summary}
+    % \bitem{ciobanu_etymological_2014}% {Summary}
 
-    \bitem{nouri_alignment_2016}%
-    {Summary}
+    % \bitem{nouri_alignment_2016}% {Summary}
 
-    \bitem{dash_designing_2013}%
-    {Summary}
+    % \bitem{dash_designing_2013}% {Summary}
 
-    \bitem{pyysalo_proto_2017}%
-    {Summary}
+    % \bitem{pyysalo_proto_2017}% {Summary}
 
-    \bitem{wu_2021_sequence}%
-    {Summary}
+    % \bitem{wu_2021_sequence}% {Summary}
 
-    \bitem{wu_computational_2020}%
-    {Summary}
+    % \bitem{wu_computational_2020}% {Summary}
 
-    \bitem{zhou_density_2019}%
-    {Summary}
+    % \bitem{zhou_density_2019}% {Summary}
 
-    \bitem{patra_bilingual_2019}%
-    {Summary}
+    % \bitem{patra_bilingual_2019}% {Summary}
 
-    \bitem{beinborn_semantic_2020}%
-    {Summary}
+    % \bitem{beinborn_semantic_2020}% {Summary}
 
-    \bitem{cristea_towards_2021}%
-    {Summary}
+    % \bitem{cristea_towards_2021}% {Summary}
 
-    \bitem{bowers_deep_2016}%
-    {Summary}
+    % \bitem{bowers_deep_2016}% {Summary}
 
-    \bitem{mericli_annotating_2015}%
-    {Summary}
+    % \bitem{mericli_annotating_2015}% {Summary}
 
-    \bitem{bhowmik_leveraging_2021}%
-    {Summary}
+    % \bitem{bhowmik_leveraging_2021}% {Summary}
 
-    \bitem{cheng_towards_2020}%
-    {Summary}
+    % \bitem{cheng_towards_2020}% {Summary}
 \end{itemize}
 
 \printbibliography
