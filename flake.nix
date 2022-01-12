@@ -24,6 +24,8 @@
                 latexindent
 
                 biblatex
+                preprint
+                bigdelim
                 ;
             })
           ];

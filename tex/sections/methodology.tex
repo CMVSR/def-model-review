@@ -1,12 +1,32 @@
 \section{Methodologies Explored}
-Methods -- ML, Deep Learning, Active Learning, Reinforcement learning, active learning etc.
+Methods -- ML, Deep Learning, Active Learning, Reinforcement Learning, etc.
 
 \subsection{Machine Learning}
-general overview diagram would be better.
+Noraset et al. condition an RNN to generate a defintion from an input seed word.
+They modify the model by updating the output of the recurrent unit with an
+update function inspired by GRU update gate \cite{noraset_definition_2016}. They
+apply pretrained word embeddings generated from Word2Vec.
+
 \subsection{Deep Learning}
 general diagram for deep learning approach.
+
 \subsection{Transfer Learning}
-overall diagram for transfer learning appraoch
+overall diagram for transfer learning approach.
+
 \subsection{Methodology Comparisons}
-Mostly focus on different group of papers focused on similar task with similar datasets. 
-show tables that mentioned - dataset names, algorithm used (highlevel), performances (acc, f1 or so on). Need to think after writing those previous sections.
+Mostly focus on different group of papers focused on similar task with similar
+datasets. show tables that mentioned - dataset names, algorithm used
+(highlevel), performances (acc, f1 or so on). Need to think after writing those
+previous sections.
+
+\subsubsection{Parameters and Evaluation}
+\begin{itemize}
+    \item Perplexity
+    \item Precision
+    \item BLEU score
+    \item ROUGE-L
+    \item Cosine similarity
+\end{itemize}
+
+In general, the performance of generative definition models are evaluated using
+perplexity and BLEU score.
