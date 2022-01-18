@@ -1,0 +1,281 @@
+\documentclass{article}[a4paper]
+\usepackage[pdftex]{hyperref}
+\usepackage[backend=bibtex,sorting=none]{biblatex}
+\addbibresource{../references/paper.bib}
+\addbibresource{../references/unsorted.bib}
+\addbibresource{../references/def_model.bib}
+
+\newcommand{\bitem}[2]{
+    \item[\cite{#1}]
+        \citetitle{#1}, \citeauthor{#1}, \citeyear{#1}
+        \newline
+        {#2}
+}%
+
+\begin{document}
+
+\tableofcontents
+
+\section{Definition Modeling}
+\begin{itemize}
+    \bitem{noraset_definition_2016}%
+    {%
+        \textbf{Gist:}
+        Describe the problem of definition modelling and generate defintions
+        from an input word with RNN model.
+
+        \textbf{Tags:}
+        Definition modeling
+
+        \textbf{Summary:}
+        Definition modeling was intially described by
+        \citeauthor{noraset_definition_2016}. Their research is based on a
+        recurrent neural network language model \cite{mikolov_recurrent_2010}
+        with a modified recurrent unit. They use the word to be defined placed
+        at the beginning of the definition so the model will see the word only
+        on the first step.
+
+        \textbf{Evaluation:}
+        Perplexity, BLEU
+
+        \textbf{Dataset:}
+        Custom - https://github.com/northanapon/dict-definition
+
+        \textbf{Models:}
+        RNN, Word2Vec, LSTM
+    }%
+
+    \bitem{gadetsky_conditional_2018}%
+    {%
+        \textbf{Gist:}
+        Word embeddings are supplemented with contextual information example
+        sentences to overcome the problem of definition modeling for polysematic
+        words.
+
+        \textbf{Tags:}
+        Context
+
+        \textbf{Summary:}
+        A major drawback of definition modeling \cite{noraset_definition_2016}
+        is that it tends to generate the most frequently used meaning for a
+        word, regardless of other existing meanings.
+        \citeauthor{gadetsky_conditional_2018} show performance improvements on
+        several models for definition modeling by including an example sentence
+        as context.
+
+        \textbf{Evaluation:}
+        Perplexity, BLEU
+
+        \textbf{Dataset:}
+        Custom - Oxford Dictionary
+
+        \textbf{Models:}
+        LSTM, Word2Vec, SkipGram
+    }%
+
+    \bitem{chang_what_2019}%
+    {%
+        \textbf{Gist:}
+        Instead of generating text, use a classification approach based on
+        $k$-nn.
+
+        \textbf{Tags:}
+        Context
+
+        \textbf{Summary:}
+        \citeauthor{chang_what_2019} explore contextualized embedding for
+        definition modeling. They reformulate the problem of definition modeling
+        from text generation to text classification. Their results show
+        state-of-the-art performance on the task of definition modeling.
+
+        \textbf{Evaluation:}
+        Precision, ROUGE-L, Cosine similarity
+
+        \textbf{Dataset:}
+        Oxford Dictionary
+
+        \textbf{Models:}
+        ELMo, BERT, FastText
+    }%
+
+    \bitem{washio_bridging_2019}%
+    {%
+        \textbf{Gist:}
+        Exploit lexical semantic relations between words to generate better
+        definitions.
+
+        \textbf{Tags:}
+        Context
+
+        \textbf{Summary:}
+        \citeauthor{washio_bridging_2019} proposed a method for context-based
+        definition modeling that considers the semantic relations between both
+        the word to be defined and the words in the definition. They apply
+        semantic information to both the definition encoder and decoder.
+
+        \textbf{Evaluation:}
+        Perplexity, BLEU
+
+        \textbf{Dataset:}
+        Dataset 1 \cite{noraset_definition_2016},
+        Dataset 2 \cite{gadetsky_conditional_2018}
+
+        \textbf{Models:}
+        Encoder/decoder
+    }%
+
+    \bitem{mickus_mark_2019}%
+    {%
+        \textbf{Gist:}
+        Reformalize the problem of definition modeling to a sequence-to-sequence
+        task by defining a highlighted word in an input context sentence.
+
+        \textbf{Tags:}
+        Context
+
+        \textbf{Summary:}
+        \citeauthor{mickus_mark_2019} argue that due to the distribution
+        hypothesis (words with similar distribution have similar meaning), the
+        problem of definition modeling should be reformulated as a
+        sequence-to-sequence task, where the input sequence is a sentence with
+        the word to be defined highlighted. The input sequence provides the
+        context necessary to generate the output definition.
+
+        \textbf{Evaluation:}
+        Perplexity
+
+        \textbf{Dataset:}
+        Dataset 1 \cite{noraset_definition_2016},
+        Dataset 2 \cite{gadetsky_conditional_2018}
+        Dataset 3 - Custom
+
+        \textbf{Models:}
+        GloVe, Transformer, sequence-to-sequence
+
+        \textbf{Notes:}
+        \begin{itemize}
+            \item BLEU and ROUGE scores are not used because many ground truth
+                  definitions are a single word.
+        \end{itemize}
+    }%
+
+    \bitem{li_explicit_2020}%
+    {%
+        \textbf{Gist:}
+        Decompose the meaning of wordsinto semantic units to improve definition
+        generation.
+
+        \textbf{Tags:}
+        Context
+
+        \textbf{Summary:}
+        \citeauthor{li_explicit_2020} propose a method for context-based
+        definition modeling that also includes a semantic component. This allows
+        the semantic components to allow for more specific defintions to be
+        generated.
+
+        \textbf{Evaluation:}
+        BLEU, Meteor, Human
+
+        \textbf{Dataset:}
+        WordNet, Oxford Dictionary
+
+        \textbf{Models:}
+        CNN, LSTM
+    }%
+\end{itemize}
+
+\section{Definition Modeling (Chinese)}
+\begin{itemize}
+    \bitem{zhu_multi_2019}%
+    {%
+        \textbf{Gist:}
+        Use Chinese word formation rules to uncover multiple definitions for
+        polysememic words.
+
+        \textbf{Tags:}
+        Chinese
+
+        \textbf{Summary:}
+        \citeauthor{zhu_multi_2019} propose a method to generate definitions for
+        Chinese words by using Chinese word formation rules. The word formation
+        rules are specific to the Chinese language.
+
+        \textbf{Evaluation:}
+        BLEU, ROUGE-L
+
+        \textbf{Dataset:}
+        Custom - Chinese Formation-informed dataset
+
+        \textbf{Models:}
+        LSTM
+    }%
+\end{itemize}
+
+\section{Definition Informed Embeddings}
+\begin{itemize}
+    \bitem{bosc_auto_2018}%
+    {%
+        \textbf{Gist:}
+        Exploit semantic relations built from definitions to generate specialized
+        word embeddings.
+
+        \textbf{Tags:}
+        Embeddings
+
+        \textbf{Summary:}
+        \citeauthor{bosc_auto_2018} proposed a method for generating word
+        embeddings from definitions. Given an input definition, a word embedding
+        is generated. A decoder will attempt to reconstruct the definition. They
+        also use definitions of words from the original input definition.
+
+        \textbf{Evaluation:}
+        Cosine similarity, Spearman correlation
+
+        \textbf{Dataset:}
+        WordNet, SimVerb3500, MEN
+
+        \textbf{Models:}
+        LSTM, Auto-encoder
+
+        \textbf{Notes:}
+        \begin{itemize}
+            \item A criteria for evaluating word embeddings could include the
+                  information required to generate the definition.
+        \end{itemize}
+    }%
+
+    \bitem{kaneko_dictionary_2021}%
+    {%
+        \textbf{Gist:}
+        Remove bias from word embeddings by using unbiased definition as inputs.
+
+        \textbf{Tags:}
+        Embeddings
+
+        \textbf{Summary:}
+        Word embeddings have been shown to include unfair bias in several
+        dimensions. However, dictionaries tend to be relatively unbiased in the
+        same dimensions. \citeauthor{kaneko_dictionary_2021} propose a method
+        to remove bias from input embeddings (without training data) by keeping
+        semantic similarity to the dictionary definition.
+
+        \textbf{Evaluation:}
+        Bias metrics
+
+        \textbf{Dataset:}
+        WordNet
+
+        \textbf{Models:}
+        Word2Vec, GloVe, FastText
+    }%
+\end{itemize}
+
+\section{Unsorted}
+\begin{itemize}
+    \item
+\end{itemize}
+
+\printbibliography
+
+\end{document}

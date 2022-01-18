@@ -3,7 +3,6 @@ result
 result/**
 
 # custom
-.vscode
 .direnv
 
 # tex

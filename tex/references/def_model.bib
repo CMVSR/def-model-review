@@ -1,0 +1,122 @@
+@article{noraset_definition_2016,
+  title      = {Definition {Modeling}: {Learning} to define word embeddings in natural language},
+  shorttitle = {Definition {Modeling}},
+  url        = {http://arxiv.org/abs/1612.00394},
+  abstract   = {Distributed representations of words have been shown to capture
+                lexical semantics, as demonstrated by their effectiveness in word similarity
+                and analogical relation tasks. But, these tasks only evaluate lexical
+                semantics indirectly. In this paper, we study whether it is possible to
+                utilize distributed representations to generate dictionary definitions of
+                words, as a more direct and transparent representation of the embeddings'
+                semantics. We introduce definition modeling, the task of generating a
+                definition for a given word and its embedding. We present several definition
+                model architectures based on recurrent neural networks, and experiment with
+                the models over multiple data sets. Our results show that a model that
+                controls dependencies between the word being defined and the definition words
+                performs significantly better, and that a character-level convolution layer
+                designed to leverage morphology can complement word-level embeddings. Finally,
+                an error analysis suggests that the errors made by a definition model may
+                provide insight into the shortcomings of word embeddings.},
+  urldate    = {2021-10-19},
+  journal    = {arXiv:1612.00394 [cs]},
+  author     = {Noraset, Thanapon and Liang, Chen and Birnbaum, Larry and Downey, Doug},
+  month      = dec,
+  year       = {2016},
+  note       = {arXiv: 1612.00394},
+  keywords   = {Computer Science - Computation and Language}
+}
+
+@inproceedings{gadetsky_conditional_2018,
+  address   = {Melbourne, Australia},
+  title     = {Conditional {Generators} of
+               {Words} {Definitions}},
+  url       = {https://aclanthology.org/P18-2043},
+  doi       = {10.18653/v1/P18-2043},
+  abstract  = {We explore recently introduced
+               definition modeling technique that provided the tool for evaluation of
+               different distributed vector representations of words through modeling
+               dictionary definitions of words. In this work, we study the problem of word
+               ambiguities in definition modeling and propose a possible solution by
+               employing latent variable modeling and soft attention mechanisms. Our
+               quantitative and qualitative evaluation and analysis of the model shows that
+               taking into account words' ambiguity and polysemy leads to performance
+               improvement.},
+  urldate   = {2022-01-12},
+  booktitle = {Proceedings of the 56th
+               {Annual} {Meeting} of the {Association} for {Computational} {Linguistics}
+               ({Volume} 2: {Short} {Papers})},
+  publisher = {Association for Computational
+               Linguistics},
+  author    = {Gadetsky, Artyom and Yakubovskiy, Ilya and Vetrov,
+               Dmitry},
+  month     = jul,
+  year      = {2018},
+  pages     = {266--271}
+}
+
+@inproceedings{chang_what_2019,
+  address    = {Hong Kong, China},
+  title      = {What {Does} {This} {Word}
+                {Mean}? {Explaining} {Contextualized} {Embeddings} with {Natural} {Language}
+                {Definition}},
+  shorttitle = {What {Does} {This} {Word} {Mean}?},
+  url        = {https://aclanthology.org/D19-1627},
+  doi        = {10.18653/v1/D19-1627},
+  abstract   = {Contextualized word embeddings have boosted many NLP tasks
+                compared with traditional static word embeddings. However, the
+                word with a specific sense may have different contextualized
+                embeddings due to its various contexts. To further investigate
+                what contextualized word embeddings capture, this paper analyzes
+                whether they can indicate the corresponding sense definitions
+                and proposes a general framework that is capable of explaining
+                word meanings given contextualized word embeddings for better
+                interpretation. The experiments show that both ELMo and BERT
+                embeddings can be well interpreted via a readable textual form,
+                and the findings may benefit the research community for a better
+                understanding of what the embeddings capture.},
+  urldate    = {2021-10-19},
+  booktitle  = {Proceedings of the 2019 {Conference}
+                on {Empirical} {Methods} in {Natural} {Language} {Processing} and the 9th
+                {International} {Joint} {Conference} on {Natural} {Language} {Processing}
+                ({EMNLP}-{IJCNLP})},
+  publisher  = {Association for Computational Linguistics},
+  author     = {Chang, Ting-Yun and Chen, Yun-Nung},
+  month      = nov,
+  year       = {2019},
+  pages      = {6064--6070}
+}
+
+@inproceedings{washio_bridging_2019,
+  address    = {Hong Kong, China},
+  title      = {Bridging the {Defined} and the
+                {Defining}: {Exploiting} {Implicit} {Lexical} {Semantic} {Relations} in
+                {Definition} {Modeling}},
+  shorttitle = {Bridging the {Defined} and the
+                {Defining}},
+  url        = {https://aclanthology.org/D19-1357},
+  doi        = {10.18653/v1/D19-1357},
+  abstract   = {Definition modeling includes acquiring
+                word embeddings from
+                dictionary definitions and generating definitions of words.
+                While the meanings of defining words are important in dictionary
+                definitions, it is crucial to capture the lexical semantic
+                relations between defined words and defining words. However,
+                thus far, the utilization of such relations has not been
+                explored for definition modeling. In this paper, we propose
+                definition modeling methods that use lexical semantic relations.
+                To utilize implicit semantic relations in definitions, we use
+                unsupervisedly obtained pattern-based word-pair embeddings that
+                represent semantic relations of word pairs. Experimental results
+                indicate that our methods improve the performance in learning
+                embeddings from definitions, as well as definition generation.},
+  urldate    = {2021-10-19},
+  booktitle  = {Proceedings of the 2019 {Conference}
+                on {Empirical} {Methods} in {Natural} {Language} {Processing} and the 9th
+                {International} {Joint} {Conference} on {Natural} {Language} {Processing}
+                ({EMNLP}-{IJCNLP})},
+  publisher  = {Association for Computational Linguistics},
+  author     = {Washio, Koki and Sekine, Satoshi and Kato, Tsuneaki},
+  month      = nov,
+  year       = {2019},
+  pages      = {3521--3527}
+}

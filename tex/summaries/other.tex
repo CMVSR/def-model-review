@@ -1,0 +1,434 @@
+\documentclass{article}[a4paper]
+\usepackage[pdftex]{hyperref}
+\usepackage[backend=bibtex,sorting=none]{biblatex}
+\addbibresource{../references/unsorted.bib}
+\addbibresource{../references/def_model.bib}
+
+\newcommand{\bitem}[2]{
+    \item[\cite{#1}]
+        \citetitle{#1}, \citeauthor{#1}, \citeyear{#1}
+        \newline
+        {#2}
+}%
+
+\begin{document}
+
+\tableofcontents
+
+\section{Datasets}
+\begin{itemize}
+    \bitem{fourrier_methodological_2020}%
+    {%
+        \textbf{Gist:}
+        A database of etymological lexical resources, EtymDB 2.0, generated from
+        Wiktionary, is proposed.
+
+        \textbf{Tags:}
+        Dataset
+
+        \textbf{Summary:}
+        \citeauthor{fourrier_methodological_2020} propose a method for
+        organizing etymological information from Wiktionary in order to provide
+        a consistent electronic lexical resource. They use their proposed
+        database to generate a global language phylogenetic tree.
+
+        \textbf{Evaluation:}
+        None
+
+        \textbf{Dataset:}
+        EtymDB 2.0 (Wiktionary)
+
+        \textbf{Models:}
+        None
+    }%
+
+    \bitem{demelo_etymological_2014}%
+    {%
+        \textbf{Gist:}
+        A broad database of etymological-based word relationships, generated
+        from Wiktionary, is proposed.
+
+        \textbf{Tags:}
+        Dataset
+
+        \textbf{Summary:}
+        \citeauthor{demelo_etymological_2014} propose a method for organizing
+        etymological information from Wiktionary. They use their proposed
+        to show a small selection of word relationships.
+
+        \textbf{Evaluation:}
+        None
+
+        \textbf{Dataset:}
+        Etymological Wordnet (Wiktionary)
+
+        \textbf{Models:}
+        None
+    }%
+\end{itemize}
+
+\subsection{Dataset Adjacent}
+\begin{itemize}
+    \bitem{dash_designing_2013}%
+    {%
+        \textbf{Gist:}
+        Annotate corpora with etymological information.
+
+        \textbf{Tags:}
+        Dataset annotation
+    }%
+
+    \bitem{pyysalo_proto_2017}%
+    {%
+        \textbf{Gist:}
+        Generate etymologies of PIE languages using phonetic context.
+
+        \textbf{Tags:}
+        Etymology creation, Phonetic context
+    }%
+\end{itemize}
+
+\section{Algorithms}
+\subsection{Definition Modeling}
+\begin{itemize}
+    \bitem{noraset_definition_2016}%
+    {%
+        \textbf{Gist:}
+        Describe the problem of definition modelling and generate defintions
+        from an input word with RNN model.
+
+        \textbf{Tags:}
+        Definition modeling
+
+        \textbf{Summary:}
+        Definition modeling was intially described by
+        \citeauthor{noraset_definition_2016}. Their research is based on a
+        recurrent neural network language model \cite{mikolov_recurrent_2010}
+        with a modified recurrent unit. They use the word to be defined placed
+        at the beginning of the definition so the model will see the word only
+        on the first step.
+
+        \textbf{Evaluation:}
+        Perplexity, BLEU
+
+        \textbf{Dataset:}
+        Custom - https://github.com/northanapon/dict-definition
+
+        \textbf{Models:}
+        RNN, Word2Vec, LSTM
+    }%
+
+    \bitem{gadetsky_conditional_2018}%
+    {%
+        \textbf{Gist:}
+        Word embeddings are supplemented with contextual information example
+        sentences to overcome the problem of definition modeling for polysematic
+        words.
+
+        \textbf{Tags:}
+        Definition modeling, context
+
+        \textbf{Summary:}
+        A major drawback of definition modeling \cite{noraset_definition_2016}
+        is that it tends to generate the most frequently used meaning for a
+        word, regardless of other existing meanings.
+        \citeauthor{gadetsky_conditional_2018} show performance improvements on
+        several models for definition modeling by including an example sentence
+        as context.
+
+        \textbf{Evaluation:}
+        Perplexity, BLEU
+
+        \textbf{Dataset:}
+        Oxford Dictionary
+
+        \textbf{Models:}
+        LSTM, Word2Vec, SkipGram
+    }%
+
+    \bitem{chang_what_2019}%
+    {%
+        \textbf{Gist:}
+        Instead of generating text, use a classification approach based on
+        $k$-nn.
+
+        \textbf{Tags:}
+        Definition modeling, context
+
+        \textbf{Summary:}
+        \citeauthor{chang_what_2019} explore contextualized embedding for
+        definition modeling. They reformulate the problem of definition modeling
+        from text generation to text classification. Their results show
+        state-of-the-art performance on the task of definition modeling.
+
+        \textbf{Evaluation:}
+        Precision, ROUGE-L, Cosine similarity
+
+        \textbf{Dataset:}
+        Oxford Dictionary
+
+        \textbf{Models:}
+        ELMo, BERT, fasttext
+    }%
+
+    \bitem{washio_bridging_2019}%
+    {%
+        \textbf{Gist:}
+        Exploit lexical semantic relations between words to generate better
+        definitions.
+
+        \textbf{Tags:}
+        Definition modeling, context
+
+        \textbf{Summary:}
+        \citeauthor{washio_bridging_2019} proposed a method for context-based
+        definition modeling that considers the semantic relations between both
+        the word to be defined and the words in the definition. They apply
+        semantic information to both the definition encoder and decoder.
+
+        \textbf{Evaluation:}
+        Perplexity, BLEU
+
+        \textbf{Dataset:}
+        Dataset 1 \cite{noraset_definition_2016},
+        Dataset 2 \cite{gadetsky_conditional_2018}
+
+        \textbf{Models:}
+        Encoder/decoder
+    }%
+\end{itemize}
+
+\subsection{Others}
+\begin{itemize}
+    \bitem{barba_exemplification_2021}%
+    {%
+        \textbf{Gist:}
+        Reverse definition modelling - generate examples (context sentences)
+        from definition.
+
+        \textbf{Tags:}
+        Context generation
+
+        \textbf{Summary:}
+        \citeauthor{barba_exemplification_2021} introduce exemplification
+        modeling, an adjacent problem to definition modeling that uses a
+        definition embedding to generate possible example sentences. They use a
+        sequence-to-sequence based approach and show near human-level annotation
+        performance. Their problem is similar in that they use the definition as
+        context to create example sentences.
+
+        \textbf{Evaluation:}
+        F1
+
+        \textbf{Dataset:}
+
+        \textbf{Models:}
+
+    }%
+
+    \bitem{wu_2021_sequence}%
+    {%
+        \textbf{Gist:}
+        Model word borrowing with etymological data.
+
+        \textbf{Tags:}
+        Word borrowing
+
+        \textbf{Summary:}
+        \citeauthor{wu_2021_sequence} propose a method for prediction of
+        borrowed word from a source language to a target language. They use a
+        sequence-to-sequence based approach and are able to outperform other
+        baseline methods.
+
+        \textbf{Evaluation:}
+        BLEU, CED, 5CED
+
+        \textbf{Dataset:}
+        Yawipa (Wiktionary)
+
+        \textbf{Models:}
+        LSTM, Transformer, Ensemble
+    }%
+
+    \bitem{wu_computational_2020}%
+    {%
+        \textbf{Gist:}
+        A Wiktionary-based dataset is proposed and used for the task of
+        etymology prediction.
+
+        \textbf{Tags:}
+        Etymology prediction/modeling
+
+        \textbf{Summary:}
+        \citeauthor{wu_computational_2020} propose a dataset parsed from
+        Wiktionary dumps that include all the fields available. They use the
+        parsed dataset to extract etymological relations between words. They
+        apply the dataset to solve the task of etymology prediction.
+
+        \textbf{Evaluation:}
+        Accuracy
+
+        \textbf{Dataset:}
+        Yawipa (Wiktionary)
+
+        \textbf{Models:}
+        LSTM
+    }%
+
+    \bitem{wettig_using_2012}%
+    {%
+        \textbf{Gist:}
+        Computationally generate etymologies from phonetic context.
+
+        \textbf{Tags:}
+        Etymology creation
+
+        \textbf{Summary:}
+        \citeauthor{wettig_using_2012} propose a method for generating
+        etymologies from phonetic context. They believe that current etymologies
+        may have bias towards certain rules or principles that may not be
+        supported by the data. Therefore, they wish to model rules to create
+        etymologies that can be discovered automatically from the raw corpus
+        with phonetic context.
+
+        \textbf{Evaluation:}
+        Compression Cost, Mean Edit Distance
+
+        \textbf{Dataset:}
+        StarLing (Uralic), "The Origin of Finnish Words"
+
+        \textbf{Models:}
+        Decision Tree
+    }%
+
+    \bitem{ciobanu_etymological_2014}%
+    {%
+        \textbf{Gist:}
+        Using etymologies, a computational method for determining similarity
+        between languages is proposed.
+
+        \textbf{Tags:}
+        Language relatedness
+
+        \textbf{Summary:}
+
+        \textbf{Evaluation:}
+        Accuracy, Edit Distance, Rank Distance, Longest Common Subsequence
+
+        \textbf{Dataset:}
+        Romanian Corpora
+
+        \textbf{Models:}
+        Orthographic Similarity
+    }%
+
+    \bitem{nouri_alignment_2016}%
+    {%
+        \textbf{Gist:}
+        Generate phylogenies with linguistic data.
+
+        \textbf{Tags:}
+        Phylogeny
+
+        \textbf{Summary:}
+        \textbf{Evaluation:}
+        \textbf{Dataset:}
+        \textbf{Models:}
+    }%
+
+    \bitem{zhou_density_2019}%
+    {%
+        \textbf{Gist:}
+        Create a bilingual word embedding by density matching two monolingual
+        embedding spaces.
+
+        \textbf{Tags:}
+        Embeddings, Translation, Bilingual Lexicon Induction
+
+        \textbf{Summary:}
+
+        \textbf{Evaluation:}
+        Precision
+
+        \textbf{Dataset:}
+        MUSE (fasttext)
+
+        \textbf{Models:}
+        Density Matching
+    }%
+
+    \bitem{patra_bilingual_2019}%
+    {%
+        \textbf{Gist:}
+        Leverage unaligned word embeddings to overcome isometric assumptions
+        between two languages.
+
+        \textbf{Tags:}
+        Bilingual Lexicon Induction
+
+        \textbf{Summary:}
+
+        \textbf{Evaluation:}
+
+        \textbf{Dataset:}
+        MUSE (fasttext)
+
+        \textbf{Models:}
+        Distribution Matching, Nearest Neighbor
+    }%
+\end{itemize}
+
+\section{Unorganized}
+\begin{itemize}
+    \bitem{list_web_2017}%
+    {%
+        \textbf{Gist:}
+        A web app is created to assist linguists in the process of creating,
+        editing, and sharing etymologies.
+
+        \textbf{Tags:}
+        Tools
+    }%
+
+    \bitem{beinborn_semantic_2020}%
+    {%
+        \textbf{Gist:}
+        Compare languages based on semantic concepts to create better
+        multilingual representations.
+
+        \textbf{Tags:}
+        Multilingual
+
+        \textbf{Summary:}
+        \textbf{Evaluation:}
+        \textbf{Dataset:}
+        \textbf{Models:}
+    }%
+
+    \bitem{cristea_towards_2021}%
+    {%
+        \textbf{Gist:}
+        Using the Romanian lexicon, extract etymological information in order to
+        find lexicographical errors.
+
+        \textbf{Tags:}
+        \textbf{Summary:}
+        \textbf{Evaluation:}
+        \textbf{Dataset:}
+        \textbf{Models:}
+    }%
+
+    % \bitem{cristea_towards_2021}% {Summary}
+
+    % \bitem{bowers_deep_2016}% {Summary}
+
+    % \bitem{mericli_annotating_2015}% {Summary}
+
+    % \bitem{bhowmik_leveraging_2021}% {Summary}
+
+    % \bitem{cheng_towards_2020}% {Summary}
+\end{itemize}
+
+\printbibliography
+
+\end{document}

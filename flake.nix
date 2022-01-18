@@ -25,7 +25,6 @@
 
                 biblatex
                 preprint
-                bigdelim
                 ;
             })
           ];
