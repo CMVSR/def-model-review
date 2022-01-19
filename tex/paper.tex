@@ -1,31 +1,66 @@
-\documentclass[a4paper,10pt]{article}
-\usepackage{fullpage}
-\usepackage{booktabs} % For formal tables
-\usepackage{balance}  % to better equalize the last pa
-\usepackage{graphics} % for EPS, load graphicx instead
-% \usepackage{multirow}
-% \usepackage{lipsum,graphicx,multicol}
-% \usepackage{xcolor}
-% \usepackage{float}
-% \usepackage{caption}
-% \usepackage{subcaption}
-% \usepackage{amsmath}
-% \usepackage{epsfig}
-% \usepackage[colorinlistoftodos]{todonotes}
-% \newcommand\notes[1]{\textcolor{red}{\textbf{Notes:} #1}}
-% \usepackage[pdftex]{hyperref}
+\documentclass{aci}
 
-%Title, date an author of the document
-\title{Recent trends of Definition Modeling}
-\author{Overleaf}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{txfonts}
+\usepackage{booktabs}
 
-%Begining of the document
+\usepackage{hyperref}
+\hypersetup{colorlinks=true}
+\usepackage{subcaption}
+\usepackage{placeins}
+\usepackage{tikz}
+\usetikzlibrary{automata,positioning,arrows}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[backend=bibtex,sorting=none]{biblatex}
+\addbibresource{./references/paper.bib}
+\addbibresource{./references/unsorted.bib}
+\addbibresource{./references/def_model.bib}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\ep}{\varepsilon}
+\newcommand{\eps}[1]{{#1}_{\varepsilon}}
+
+\def\typeofarticle{Research Article} \def\currentvolume{1} \def\currentissue{1}
+\def\currentyear{2021} \def\currentmonth{} \def\ppages{1--30} \def\DOI{to
+appear} \def\Received{June 2022} \def\Accepted{July 2022} \def\Published{October
+2022 }
+\numberwithin{equation}{section}
+\DeclareMathOperator*{\essinf}{ess\,inf}
+
+\usepackage{array}
+\newcolumntype{L}{>{\arraybackslash}m{8cm}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
+
+\title{Survey on Definition Modeling}
+
+\author{%
+    Noah Gardner\affil{1},
+    Hafiz Khan\affil{2},
+    Chih-Cheng Hung\affil{1}\corrauth,
+}%
+
+% \shortauthors is used in copyright information in the end of the paper
+\shortauthors{the Author(s)}
+
+\address{%
+    \addr{\affilnum{1}}{Laboratory of Machine Vision and Security Research,%
+        College of Computing and Software Engineering, Kennesaw State%
+        University, Marietta GA, USA}%
+    \addr{\affilnum{2}}{Laboratory of Ubiquitous Data Mining,%
+        College of Computing and Software Engineering, Kennesaw State%
+        University, Marietta GA, USA}}
+\corraddr{chung1@kennesaw.edu}
+
+\begin{abstract}
+
+\end{abstract}
+
+\keywords{Definition modeling, definition generation}
+
 \maketitle
-
-\section{Abstract}
-Text related to abstract.
-
 \input{sections/introduction.tex}
 
 \section{Related Work}
@@ -34,14 +69,12 @@ Text related to abstract.
 \input{sections/methodology}
 \input{sections/datatypes}
 
-\cite{fourrier_methodological_2020}
-
 \section{Future Direction and Trends}
 Text related to future research directions.
 
+\FloatBarrier
 \section{Conclusion}
 Write text related to conclusion of this study.
 
-\bibliographystyle{abbrv}
-\bibliography{paper.bib}
+\printbibliography
 \end{document}

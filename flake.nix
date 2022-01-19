@@ -25,6 +25,8 @@
 
                 biblatex
                 preprint
+                txfonts
+                placeins
                 ;
             })
           ];
