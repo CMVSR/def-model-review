@@ -1,6 +1,7 @@
 \documentclass{article}[a4paper]
 \usepackage[pdftex]{hyperref}
 \usepackage[backend=bibtex,sorting=none]{biblatex}
+\addbibresource{../references/paper.bib}
 \addbibresource{../references/unsorted.bib}
 \addbibresource{../references/def_model.bib}
 
@@ -89,116 +90,6 @@
 \end{itemize}
 
 \section{Algorithms}
-\subsection{Definition Modeling}
-\begin{itemize}
-    \bitem{noraset_definition_2016}%
-    {%
-        \textbf{Gist:}
-        Describe the problem of definition modelling and generate defintions
-        from an input word with RNN model.
-
-        \textbf{Tags:}
-        Definition modeling
-
-        \textbf{Summary:}
-        Definition modeling was intially described by
-        \citeauthor{noraset_definition_2016}. Their research is based on a
-        recurrent neural network language model \cite{mikolov_recurrent_2010}
-        with a modified recurrent unit. They use the word to be defined placed
-        at the beginning of the definition so the model will see the word only
-        on the first step.
-
-        \textbf{Evaluation:}
-        Perplexity, BLEU
-
-        \textbf{Dataset:}
-        Custom - https://github.com/northanapon/dict-definition
-
-        \textbf{Models:}
-        RNN, Word2Vec, LSTM
-    }%
-
-    \bitem{gadetsky_conditional_2018}%
-    {%
-        \textbf{Gist:}
-        Word embeddings are supplemented with contextual information example
-        sentences to overcome the problem of definition modeling for polysematic
-        words.
-
-        \textbf{Tags:}
-        Definition modeling, context
-
-        \textbf{Summary:}
-        A major drawback of definition modeling \cite{noraset_definition_2016}
-        is that it tends to generate the most frequently used meaning for a
-        word, regardless of other existing meanings.
-        \citeauthor{gadetsky_conditional_2018} show performance improvements on
-        several models for definition modeling by including an example sentence
-        as context.
-
-        \textbf{Evaluation:}
-        Perplexity, BLEU
-
-        \textbf{Dataset:}
-        Oxford Dictionary
-
-        \textbf{Models:}
-        LSTM, Word2Vec, SkipGram
-    }%
-
-    \bitem{chang_what_2019}%
-    {%
-        \textbf{Gist:}
-        Instead of generating text, use a classification approach based on
-        $k$-nn.
-
-        \textbf{Tags:}
-        Definition modeling, context
-
-        \textbf{Summary:}
-        \citeauthor{chang_what_2019} explore contextualized embedding for
-        definition modeling. They reformulate the problem of definition modeling
-        from text generation to text classification. Their results show
-        state-of-the-art performance on the task of definition modeling.
-
-        \textbf{Evaluation:}
-        Precision, ROUGE-L, Cosine similarity
-
-        \textbf{Dataset:}
-        Oxford Dictionary
-
-        \textbf{Models:}
-        ELMo, BERT, fasttext
-    }%
-
-    \bitem{washio_bridging_2019}%
-    {%
-        \textbf{Gist:}
-        Exploit lexical semantic relations between words to generate better
-        definitions.
-
-        \textbf{Tags:}
-        Definition modeling, context
-
-        \textbf{Summary:}
-        \citeauthor{washio_bridging_2019} proposed a method for context-based
-        definition modeling that considers the semantic relations between both
-        the word to be defined and the words in the definition. They apply
-        semantic information to both the definition encoder and decoder.
-
-        \textbf{Evaluation:}
-        Perplexity, BLEU
-
-        \textbf{Dataset:}
-        Dataset 1 \cite{noraset_definition_2016},
-        Dataset 2 \cite{gadetsky_conditional_2018}
-
-        \textbf{Models:}
-        Encoder/decoder
-    }%
-\end{itemize}
-
-\subsection{Others}
 \begin{itemize}
     \bitem{barba_exemplification_2021}%
     {%
@@ -219,11 +110,6 @@
 
         \textbf{Evaluation:}
         F1
-
-        \textbf{Dataset:}
-
-        \textbf{Models:}
-
     }%
 
     \bitem{wu_2021_sequence}%
@@ -310,8 +196,6 @@
         \textbf{Tags:}
         Language relatedness
 
-        \textbf{Summary:}
-
         \textbf{Evaluation:}
         Accuracy, Edit Distance, Rank Distance, Longest Common Subsequence
 
@@ -329,11 +213,6 @@
 
         \textbf{Tags:}
         Phylogeny
-
-        \textbf{Summary:}
-        \textbf{Evaluation:}
-        \textbf{Dataset:}
-        \textbf{Models:}
     }%
 
     \bitem{zhou_density_2019}%
@@ -344,8 +223,6 @@
 
         \textbf{Tags:}
         Embeddings, Translation, Bilingual Lexicon Induction
-
-        \textbf{Summary:}
 
         \textbf{Evaluation:}
         Precision
@@ -365,10 +242,6 @@
 
         \textbf{Tags:}
         Bilingual Lexicon Induction
-
-        \textbf{Summary:}
-
-        \textbf{Evaluation:}
 
         \textbf{Dataset:}
         MUSE (fasttext)
@@ -398,11 +271,6 @@
 
         \textbf{Tags:}
         Multilingual
-
-        \textbf{Summary:}
-        \textbf{Evaluation:}
-        \textbf{Dataset:}
-        \textbf{Models:}
     }%
 
     \bitem{cristea_towards_2021}%
@@ -410,12 +278,6 @@
         \textbf{Gist:}
         Using the Romanian lexicon, extract etymological information in order to
         find lexicographical errors.
-
-        \textbf{Tags:}
-        \textbf{Summary:}
-        \textbf{Evaluation:}
-        \textbf{Dataset:}
-        \textbf{Models:}
     }%
 
     % \bitem{cristea_towards_2021}% {Summary}

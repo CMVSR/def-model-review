@@ -4,6 +4,9 @@ result/**
 
 # custom
 .direnv
+*.pdf
+!tex/logo_new.pdf
+!tex/logobottom.pdf
 
 # tex
 ## Core latex/pdflatex auxiliary files:
@@ -19,7 +22,6 @@ result/**
 *.cb
 *.cb2
 .*.lb
-*.pdf
 
 ## Intermediate documents:
 *.dvi
