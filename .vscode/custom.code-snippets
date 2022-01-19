@@ -20,12 +20,16 @@
     "body": [
       "\\bitem{}%",
       "{%",
-      "\\textbf{Gist:}",
-      "\\textbf{Tags:}",
-      "\\textbf{Summary:}",
-      "\\textbf{Evaluation:}",
-      "\\textbf{Dataset:}",
-      "\\textbf{Models:}",
+      "\\textbf{Gist:}\n",
+      "\\textbf{Tags:}\n",
+      "\\textbf{Summary:}\n",
+      "\\textbf{Evaluation:}\n",
+      "\\textbf{Dataset:}\n",
+      "\\textbf{Models:}\n",
+      "\\textbf{Notes:}",
+      "\\begin{itemize}",
+      "\\item",
+      "\\end{itemize}",
       "}%"
     ]
   }

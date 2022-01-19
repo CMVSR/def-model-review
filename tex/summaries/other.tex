@@ -1,5 +1,5 @@
 \documentclass{article}[a4paper]
-\usepackage[pdftex]{hyperref}
+\usepackage[hidelinks, pdftex]{hyperref}
 \usepackage[backend=bibtex,sorting=none]{biblatex}
 \addbibresource{../references/paper.bib}
 \addbibresource{../references/unsorted.bib}
@@ -7,8 +7,8 @@
 
 \newcommand{\bitem}[2]{
     \item[\cite{#1}]
-        \citetitle{#1}, \citeauthor{#1}, \citeyear{#1}
-        \newline
+        \textbf{\citetitle{#1}}, \citeauthor{#1}, \citeyear{#1}
+        \newline\newline
         {#2}
 }%
 

@@ -1,5 +1,5 @@
 \documentclass{article}[a4paper]
-\usepackage[pdftex]{hyperref}
+\usepackage[hidelinks, pdftex]{hyperref}
 \usepackage[backend=bibtex,sorting=none]{biblatex}
 \addbibresource{../references/paper.bib}
 \addbibresource{../references/unsorted.bib}
@@ -7,8 +7,10 @@
 
 \newcommand{\bitem}[2]{
     \item[\cite{#1}]
-        \citetitle{#1}, \citeauthor{#1}, \citeyear{#1}
-        \newline
+        \textbf{\citetitle{#1}}
+
+        \citeauthor{#1}, \citeyear{#1}
+        \newline\newline
         {#2}
 }%
 
@@ -39,6 +41,7 @@
         Perplexity, BLEU
 
         \textbf{Dataset:}
+        GCIDE,
         Custom - https://github.com/northanapon/dict-definition
 
         \textbf{Models:}
@@ -175,13 +178,90 @@
         generated.
 
         \textbf{Evaluation:}
-        BLEU, Meteor, Human
+        BLEU, METEOR, Human
 
         \textbf{Dataset:}
         WordNet, Oxford Dictionary
 
         \textbf{Models:}
         CNN, LSTM
+    }%
+
+    \bitem{bevilacqua_generationary_2020}%
+    {%
+        \textbf{Gist:}
+        Use a single Encoder-Decoder model to encode the target in context.
+        Proposes dataset to generate definitions for adjective-noun phrases that
+        are difficult to define without context.
+
+        \textbf{Tags:}
+        Context, Word Sense Disambiguation, Word-in-Context
+
+        \textbf{Summary:}
+        \citeauthor{bevilacqua_generationary_2020}, like other authors, argue
+        that in order to generate definitions of a given word, the word can not
+        be given by itself in an inventory of sorts. Rather, the word to be
+        defined must be contained within a contextual sentence. Unique to this
+        approach, they use a single Encoder-Decoder model to encode the target
+        in context. They also show that their approach can generalize to other
+        NLP tasks such as word sense disambiguation and word-in-context.
+
+        \textbf{Evaluation:}
+        Perplexity, BLEU, ROUGE-L, METEOR, BERTScore
+
+        \textbf{Dataset:}
+        Oxford Dictionary \cite{chang_what_2019},
+        Sem-Cor \cite{miller_semantic_1993},
+        Wiktionary,
+        GCIDE \cite{noraset_definition_2016},
+        Hei++ (Custom),
+        WordNet
+
+        \textbf{Models:}
+        BART
+
+        \textbf{Notes:}
+        \begin{itemize}
+            \item Tackles the problem of Word Sense Disambiguation by
+                  focusing on definition modeling
+            \item Circular definitions (starting with synonym \textit{of})
+                  removed
+        \end{itemize}
+    }%
+
+    \bitem{sojka_evaluating_2020}%
+    {%
+        \textbf{Gist:}
+        To solve the problem of polysemy, rather than provide a context
+        sentence, generate multiple definitions that correspond to different
+        senses of the word.
+
+        \textbf{Tags:}
+        No context, Multi-sense embeddings, polysemy
+
+        \textbf{Summary:}
+        \citeauthor{sojka_evaluating_2020} propose a method for multi-sense
+        context-agnostic definition generation for polysemous words. They also
+        apply their approach to other languages in contrast to prior work which
+        focuses on English.
+
+        \textbf{Evaluation:}
+        BLEU,
+        rBLEU (recall-based),
+        fBLEU (harmonic mean of BLEU, rBLEU)
+
+        \textbf{Dataset:}
+        Wiktionary,
+        OmegaWiki,
+        WordNet
+
+        \textbf{Models:}
+        AdaGram, Word2Vec, CNN, RNN
+
+        \textbf{Notes:}
+        \begin{itemize}
+            \item
+        \end{itemize}
     }%
 \end{itemize}
 
@@ -273,7 +353,8 @@
 
 \section{Unorganized}
 \begin{itemize}
-    \item
+    \item {}
+
 \end{itemize}
 
 \printbibliography
