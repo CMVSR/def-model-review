@@ -39,38 +39,43 @@ appear} \def\Received{June 2022} \def\Accepted{July 2022} \def\Published{October
 \author{%
     Noah Gardner\affil{1},
     Hafiz Khan\affil{2},
-    Chih-Cheng Hung\affil{1}\corrauth,
+    Chih-Cheng Hung\affil{1}\corrauth
 }%
 
 % \shortauthors is used in copyright information in the end of the paper
 \shortauthors{the Author(s)}
 
 \address{%
-    \addr{\affilnum{1}}{Laboratory of Machine Vision and Security Research,%
-        College of Computing and Software Engineering, Kennesaw State%
+    \addr{\affilnum{1}}{Laboratory of Machine Vision and Security Research, %
+        College of Computing and Software Engineering, Kennesaw State %
         University, Marietta GA, USA}%
-    \addr{\affilnum{2}}{Laboratory of Ubiquitous Data Mining,%
-        College of Computing and Software Engineering, Kennesaw State%
+    \addr{\affilnum{2}}{Laboratory of Ubiquitous Data Mining, %
+        College of Computing and Software Engineering, Kennesaw State %
         University, Marietta GA, USA}}
 \corraddr{chung1@kennesaw.edu}
 
 \begin{abstract}
-
+    Definition modeling, the task of generating a definition for a given term,
+    is a relatively new area of research applied in the evaluation of word
+    embeddings that is gathering attention. Automatic generation of dictionary
+    quality definitions has many applications in natural language processing,
+    such as sentiment analysis, machine translation, and word sense
+    disambiguation. Additionally, definition modeling is also useful for
+    evaluating the quality of word embeddings. As more research is done in this
+    field, the need for a summary of different applications, approaches, and
+    obstacles grows apparent. This survey aims to provide an overview of the
+    current research in definition modeling, and to provide a list of future
+    directions and trends.
 \end{abstract}
-
 \keywords{Definition modeling, definition generation}
-
 \maketitle
-\input{sections/introduction.tex}
 
-\section{Related Work}
-
+\input{sections/introduction}
+\input{sections/related}
 \input{sections/scope}
 \input{sections/methodology}
 \input{sections/datatypes}
-
-\section{Future Direction and Trends}
-Text related to future research directions.
+\input{sections/future}
 
 \FloatBarrier
 \section{Conclusion}

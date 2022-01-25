@@ -263,6 +263,64 @@
             \item
         \end{itemize}
     }%
+
+    \bitem{huang_cdm_2021}%
+    {%
+        \textbf{Gist:}
+        Combine definition extraction with definition generation to improve
+        the quality of generated definitions.
+
+        \textbf{Tags:}
+        Context, Extraction
+
+        \textbf{Summary:}
+        \citeauthor{huang_cdm_2021} propose a method for context-based
+        definition modeling that depends on an extracted definition rather than
+        a set of example sentences to provide context for definition generation.
+
+        \textbf{Evaluation:}
+        BLUE, ROUGE-L, METEOR, BERTScore
+
+        \textbf{Dataset:}
+        Custom (Wikipedia)
+
+        \textbf{Models:}
+        BERT
+
+        \textbf{Notes:}
+        \begin{itemize}
+            \item Compares to Generationary \cite{bevilacqua_generationary_2020}
+                  and VCDM \cite{reid_vcdm_2020}.
+        \end{itemize}
+    }%
+
+    \bitem{reid_vcdm_2020}%
+    {%
+        \textbf{Gist:}
+        A variational autoencoder (VAE) model is used and a continuous laten
+        variable is introduced to explicitly modelthe relationship between the
+        context and the definition.
+
+        \textbf{Tags:}
+        Context
+
+        \textbf{Summary:}
+
+        \textbf{Evaluation:}
+        BLEU, BERTScore (Precision, Recall, F1), Human
+
+        \textbf{Dataset:}
+        Oxford, Urban, Wikipedia, Cambridge, Robert (French)
+
+        \textbf{Models:}
+        BERT, LSTM
+
+        \textbf{Notes:}
+        \begin{itemize}
+            \item https://github.com/shonosuke/ishiwatari-naacl2019
+            \item https://github.com/machelreid/vcdm
+        \end{itemize}
+    }%
 \end{itemize}
 
 \section{Definition Modeling (Chinese)}
