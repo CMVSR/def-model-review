@@ -1,32 +1,64 @@
-\section{Methodologies Explored}
-Methods -- ML, Deep Learning, Active Learning, Reinforcement Learning, etc.
+\section{Methodology}
 
-\subsection{Machine Learning}
-Noraset et al. condition an RNN to generate a defintion from an input seed word.
-They modify the model by updating the output of the recurrent unit with an
-update function inspired by GRU update gate \cite{noraset_definition_2016}. They
-apply pretrained word embeddings generated from Word2Vec.
+\subsection{Language Models}
+A definiton model is a language model that is trained on a set of definitions.
+The goal of a definition model is to learn to generate a definition ($ D = [d_1,
+    ..., d_T])$ for a given term $w$. The probability of generating the $t$-th word
+in a definition depends on both the previous words in the definition and the
+word to be defined (Eq. \ref{eq:definition_model}).
 
-\subsection{Deep Learning}
-general diagram for deep learning approach.
+\begin{equation}
+    \label{eq:definition_model}
+    p(D | w) = \prod_{t=1}^{T} p(d_t | d_1,...d_{t-1}, w)
+\end{equation}
 
-\subsection{Transfer Learning}
-overall diagram for transfer learning approach.
+% \section{Methodologies Explored}
+% Methods -- ML, Deep Learning, Active Learning, Reinforcement Learning, etc.
 
-\subsection{Methodology Comparisons}
-Mostly focus on different group of papers focused on similar task with similar
-datasets. show tables that mentioned - dataset names, algorithm used
-(highlevel), performances (acc, f1 or so on). Need to think after writing those
-previous sections.
+% \subsection{Machine Learning}
+% Noraset et al. condition an RNN to generate a defintion from an input seed word.
+% They modify the model by updating the output of the recurrent unit with an
+% update function inspired by GRU update gate \cite{noraset_definition_2016}. They
+% apply pretrained word embeddings generated from Word2Vec.
 
-\subsubsection{Parameters and Evaluation}
-\begin{itemize}
-    \item Perplexity
-    \item Precision
-    \item BLEU score
-    \item ROUGE-L
-    \item Cosine similarity
-\end{itemize}
+% Semi-supervised approach \cite{patra_bilingual_2019}.
 
-In general, the performance of generative definition models are evaluated using
-perplexity and BLEU score.
+% \subsection{Deep Learning}
+% general diagram for deep learning approach.
+
+% \cite{wu_2021_sequence}We computationally model the processes of
+% word borrowing from a donor word to an incorporated
+% word, and vice versa, by answering
+% two questions: (1) what does a word look
+% like incorporated into another language, and
+% in the opposite direction (2) where did a word
+% come from? We experiment with several
+% model variants, including LSTM encoderdecoders,
+% copy attention, and Transformers.
+
+% \cite{wu_computational_2020} For our model, we used a LSTM with an embedding
+% dimension of 128 and hidden dimension of 128.
+% The output of the last hidden state is passed to a fully connected layer with a sigmoid activation function. 
+
+
+% \subsection{Transfer Learning}
+% overall diagram for transfer learning approach.
+
+% \subsection{Methodology Comparisons}
+% Mostly focus on different group of papers focused on similar task with similar
+% datasets. show tables that mentioned - dataset names, algorithm used
+% (highlevel), performances (acc, f1 or so on). Need to think after writing those
+% previous sections.
+
+% \subsubsection{Parameters and Evaluation}
+% \begin{itemize}
+%     \item Perplexity
+%     \item Precision
+%     \item BLEU score
+%     \item ROUGE-L
+%     \item Cosine similarity
+% \end{itemize}
+
+% In general, the performance of generative definition models are evaluated using
+% perplexity and BLEU score.
+
