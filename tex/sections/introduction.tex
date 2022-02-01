@@ -4,15 +4,20 @@ for exposing the aspects of a given term. In general, definitions are
 unambiguous and succint: they should be easy to read and understand. The
 qualities of definitions that allow one to directly understand the meaning of a
 word or phrase also allow the exploration of the semantic relationships between
-words.
+words. These qualities have allowed the creation of neural language models that
+can generate useful embeddings based on the semantic information contained in
+the definitions \cite{hill_learning_2016, bosc_auto_2018}.
 
 Word embeddings have been taken advantage of in order to obtain powerful
 performance in a variety of NLP tasks. They are useful for capturing lexical
-syntax and semantics based on word similarity. However, the interpretability of
-word embeddings is limited.
+syntax and semantics based on word similarity.
+\citeauthor{mikolov_distributed_2013} show that basic mathematical operations
+applied on word embeddings can show meaningful language understanding
+\cite{mikolov_distributed_2013}. However, as continuous representations, the
+interpretability of word embeddings is limited.
 
-Thus, the problem of definition modeling \cite{noraset_definition_2016} was
-proposed to evaluate word embeddings. The task of definition modeling is to
+Thus, the problem of definition modeling was proposed to evaluate word
+embeddings \cite{noraset_definition_2016}. The task of definition modeling is to
 generate a definition for a given term. The goal of a model trained on this task
 is to train on word embedding and definition pairs in order to learn to generate
 a definition for a given word or phrase.

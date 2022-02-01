@@ -3,14 +3,14 @@ Methods -- ML, Deep Learning, Active Learning, Reinforcement Learning, etc.
 
 \subsection{Language Models}
 A definition model is a language model that is trained on a set of definitions.
-The goal of a definition model is to learn to generate a definition ($ D = [d_1,
-    ..., d_T])$ for a given term $w$. The probability of generating the $t$-th word
-in a definition depends on both the previous words in the definition and the
-word to be defined (Eq. \ref{eq:definition_model}).
+The goal of a definition model is to learn to generate a definition %
+($\textbf{d} = [d_1, ..., d_T])$ for a given term $w$. The probability of
+generating the $t$-th word in a definition depends on both the previous words in
+the definition and the word to be defined (Eq. \ref{eq:definition_model}).
 
 \begin{equation}
     \label{eq:definition_model}
-    p(\textbf{d} | w) = \prod_{t=1}^{T} p(d_t | d_1,...d_{t-1}, w)
+    p(\textbf{d} | w) = \prod_{t=1}^{T} p(d_t | d_1,...,d_{t-1}, w)
 \end{equation}
 
 \subsection{Machine Learning}
