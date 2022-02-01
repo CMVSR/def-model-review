@@ -17,17 +17,10 @@
         devShell = pkgs.mkShell {
           packages = [
             # tex
-            (pkgs.texlive.combine {
-              inherit (pkgs.texlive)
-                scheme-small
-                latexmk
-                latexindent
-
-                biblatex
-                preprint
-                txfonts
-                placeins
-                ;
+            (pkgs.callPackage ./tex-env.nix {
+              extraTexPackages = {
+                inherit (pkgs.texlive) latexmk latexindent;
+              };
             })
           ];
         };
