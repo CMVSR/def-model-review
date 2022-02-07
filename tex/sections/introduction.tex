@@ -21,3 +21,25 @@ embeddings \cite{noraset_definition_2016}. The task of definition modeling is to
 generate a definition for a given term. The goal of a model trained on this task
 is to train on word embedding and definition pairs in order to learn to generate
 a definition for a given word or phrase.
+
+\begin{figure}
+    \centering
+    \include{assets/defmodel.tex}
+    \caption{An example of the definition modeling problem for the definiendum
+        \textit{free} and an output definition.}
+\end{figure}
+
+In addition to being a relatively new language modeling task, definition
+modeling has attracted attention from the literature in a number of areas.
+First, it was shown that the definition model has poor performance when
+generating definitions for polysemes: words with multiple definitions. This
+problem was not addressed in the original work as only one definition mapped to
+each word. Once researchers attempted to address this problem, they found that
+the definition model was unable to learn the semantics of the polyseme with only
+the word as an input. Therefore, it was necessary to augment the definition
+model with additional information, namely, a context sentence which sets the
+word to be defined \textit{definiendum} inside as an example sentence. This
+method has been shown to allieviate the problem of generating definitions for
+polysemes and also improve the performance of the definition model on several
+measures \cite{gadetsky_conditional_2018}, \cite{mickus_mark_2019},
+\cite{bevilacqua_generationary_2020}.

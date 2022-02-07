@@ -1,31 +1,77 @@
-% recurrent neural network language model
-@inproceedings{mikolov_recurrent_2010,
+@misc{wiktionary,
+  _author        = {Wiktionary},
+  _title         = {Wiktionary},
+  ?_howpublished = {wiktionary.org},
+  ?_year         = {XXXX},
+  ?_month        = {},
+  ?_note         = {},
+  url            = {wiktionary.org}
+}
+
+@inproceedings{nastase-strapparava-2013-bridging,
+  title     = {Bridging Languages through Etymology: The case of cross language
+               text categorization},
+  author    = {Nastase, Vivi  and
+               Strapparava, Carlo},
+  booktitle = {Proceedings of the 51st Annual Meeting of the Association for
+               Computational Linguistics (Volume 1: Long Papers)},
+  month     = aug,
+  year      = {2013},
+  address   = {Sofia, Bulgaria},
+  publisher = {Association for
+               Computational Linguistics},
+  url       = {https://aclanthology.org/P13-1064},
+  pages     = {651--659}
+}
+
+@inproceedings{Sagot2017ExtractingAE,
+  title  = {Extracting an Etymological Database from Wiktionary},
+  author = {Beno{\^i}t Sagot},
+  year   = {2017}
+}
+
+@inproceedings{beinborn-etal-2013-cognate,
+  title     = {Cognate Production using Character-based Machine Translation},
+  author    = {Beinborn, Lisa  and
+               Zesch, Torsten  and Gurevych, Iryna},
+  booktitle = {Proceedings of the Sixth International Joint Conference on
+               Natural Language Processing},
+  month     = oct,
+  year      = {2013},
+  address   = {Nagoya, Japan},
+  publisher = {Asian Federation of Natural Language
+               Processing},
+  url       = {https://aclanthology.org/I13-1112},
+  pages     = {883--891}
+}
+
+% recurrent neural network language model @inproceedings{mikolov_recurrent_2010,
   title     = {Recurrent neural network based language model},
   url       = {http://www.isca-speech.org/archive/interspeech\_2010/i10\_1045.html},
   urldate   = {2021-10-19},
-  booktitle = {{INTERSPEECH} 2010, 11th {Annual} {Conference} of the {International} {Speech} {Communication} {Association}, {Makuhari}, {Chiba}, {Japan}, {September} 26-30, 2010},
+  booktitle = {{INTERSPEECH} 2010, 11th {Annual} {Conference} of
+               the {International} {Speech} {Communication} {Association}, {Makuhari},
+               {Chiba}, {Japan}, {September} 26-30, 2010},
   publisher = {ISCA},
-  author    = {Mikolov, Tomás and Karafiát, Martin and Burget, Lukás and Cernocký, Jan and Khudanpur, Sanjeev},
-  editor    = {Kobayashi, Takao and Hirose, Keikichi and Nakamura, Satoshi},
+  author    = {Mikolov, Tomás and Karafiát, Martin and Burget, Lukás and Cernocký, Jan and
+               Khudanpur, Sanjeev},
+  editor    = {Kobayashi, Takao and Hirose, Keikichi and
+               Nakamura, Satoshi},
   year      = {2010},
   pages     = {1045--1048}
 }
 
-% datasets
-@inproceedings{miller_semantic_1993,
+% datasets @inproceedings{miller_semantic_1993,
   title     = {A Semantic Concordance},
   author    = {Miller, George A.  and
-               Leacock, Claudia  and
-               Tengi, Randee  and
-               Bunker, Ross T.},
+               Leacock, Claudia  and Tengi, Randee  and Bunker, Ross T.},
   booktitle = {{H}uman {L}anguage {T}echnology: Proceedings of a Workshop Held
                at Plainsboro, New Jersey, March 21-24, 1993},
   year      = {1993},
   url       = {https://aclanthology.org/H93-1061}
 }
 
-% word embeddings
-@inproceedings{mikolov_distributed_2013,
+% word embeddings @inproceedings{mikolov_distributed_2013,
   title     = {Distributed Representations of Words and Phrases and their
                Compositionality},
   author    = {Tomas Mikolov and Ilya Sutskever and Kai Chen
@@ -34,8 +80,7 @@
   year      = {2013}
 }
 
-% definition-informed embeddings
-@article{hill_learning_2016,
+% definition-informed embeddings @article{hill_learning_2016,
   title    = {Learning to {Understand} {Phrases} by {Embedding} the
               {Dictionary}},
   volume   = {4},
@@ -43,25 +88,30 @@
   url      = {https://direct.mit.edu/tacl/article/43354},
   doi      = {10.1162/tacl_a_00080},
   abstract = {Distributional models that learn rich
-              semantic word representations are a success story of recent NLP research.
-              However, developing models that learn useful representations of phrases and
-              sentences has proved far harder. We propose using the definitions found in
-              everyday dictionaries as a means of bridging this gap between lexical and
-              phrasal semantics. Neural language embedding models can be effectively trained
-              to map dictionary definitions (phrases) to (lexical) representations of the
-              words defined by those definitions. We present two applications of these
-              architectures: reverse dictionaries that return the name of a concept given a
-              definition or description and general-knowledge crossword question answerers.
-              On both tasks, neural language embedding models trained on definitions from a
-              handful of freely-available lexical resources perform as well or better than
-              existing commercial systems that rely on significant task-specific
-              engineering. The results highlight the effectiveness of both neural embedding
-              architectures and definition-based training for developing models that
-              understand phrases and sentences.},
+              semantic word representations are a success story of recent NLP
+              research. However, developing models that learn useful
+              representations of phrases and sentences has proved far harder. We
+              propose using the definitions found in everyday dictionaries as a
+              means of bridging this gap between lexical and phrasal semantics.
+              Neural language embedding models can be effectively trained to map
+              dictionary definitions (phrases) to (lexical) representations of
+              the words defined by those definitions. We present two
+              applications of these architectures: reverse dictionaries that
+              return the name of a concept given a definition or description and
+              general-knowledge crossword question answerers. On both tasks,
+              neural language embedding models trained on definitions from a
+              handful of freely-available lexical resources perform as well or
+              better than existing commercial systems that rely on significant
+              task-specific engineering. The results highlight the effectiveness
+              of both neural embedding architectures and definition-based
+              training for developing models that understand phrases and
+              sentences.},
   language = {en},
   urldate  = {2022-02-01},
-  journal  = {Transactions of the Association for Computational Linguistics},
-  author   = {Hill, Felix and Cho, Kyunghyun and Korhonen, Anna and Bengio,
+  journal  = {Transactions of the
+              Association for Computational Linguistics},
+  author   = {Hill, Felix and Cho,
+              Kyunghyun and Korhonen, Anna and Bengio,
               Yoshua},
   month    = dec,
   year     = {2016},
@@ -86,8 +136,7 @@
   pages     = {1522--1532}
 }
 
-% bilingual and multilingual word embeddings
-@inproceedings{zhou_density_2019,
+% bilingual and multilingual word embeddings @inproceedings{zhou_density_2019,
   address   = {Minneapolis, Minnesota},
   title     = {Density {Matching} for
                {Bilingual} {Word} {Embedding}},
@@ -108,7 +157,8 @@
 @inproceedings{patra_bilingual_2019,
   address   = {Florence, Italy},
   title     = {Bilingual {Lexicon} {Induction}
-               with {Semi}-supervision in {Non}-{Isometric} {Embedding} {Spaces}},
+               with {Semi}-supervision in {Non}-{Isometric} {Embedding}
+               {Spaces}},
   url       = {https://www.aclweb.org/anthology/P19-1018},
   doi       = {10.18653/v1/P19-1018},
   language  = {en},
@@ -130,23 +180,27 @@
   url      = {https://direct.mit.edu/coli/article/46/3/571-603/93376},
   doi      = {10.1162/coli_a_00382},
   abstract = {Multilingual representations have mostly
-              been evaluated based on their performance on specific tasks. In this article,
-              we look beyond engineering goals and analyze the relations between languages
-              in computational representations. We introduce a methodology for comparing
-              languages based on their organization of semantic concepts. We propose to
-              conduct an adapted version of representational similarity analysis of a
-              selected set of concepts in computational multilingual representations. Using
-              this analysis method, we can reconstruct a phylogenetic tree that closely
-              resembles those assumed by linguistic experts. These results indicate that
-              multilingual distributional representations that are only trained on
-              monolingual text and bilingual dictionaries preserve relations between
-              languages without the need for any etymological information. In addition, we
-              propose a measure to identify semantic drift between language families. We
-              perform experiments on word-based and sentence-based multilingual models and
-              provide both quantitative results and qualitative examples. Analyses of
-              semantic drift in multilingual representations can serve two purposes: They
-              can indicate unwanted characteristics of the computational models and they
-              provide a quantitative means to study linguistic phenomena across languages.},
+              been evaluated based on their performance on specific tasks. In
+              this article, we look beyond engineering goals and analyze the
+              relations between languages in computational representations. We
+              introduce a methodology for comparing languages based on their
+              organization of semantic concepts. We propose to conduct an
+              adapted version of representational similarity analysis of a
+              selected set of concepts in computational multilingual
+              representations. Using this analysis method, we can reconstruct a
+              phylogenetic tree that closely resembles those assumed by
+              linguistic experts. These results indicate that multilingual
+              distributional representations that are only trained on
+              monolingual text and bilingual dictionaries preserve relations
+              between languages without the need for any etymological
+              information. In addition, we propose a measure to identify
+              semantic drift between language families. We perform experiments
+              on word-based and sentence-based multilingual models and provide
+              both quantitative results and qualitative examples. Analyses of
+              semantic drift in multilingual representations can serve two
+              purposes: They can indicate unwanted characteristics of the
+              computational models and they provide a quantitative means to
+              study linguistic phenomena across languages.},
   language = {en},
   number   = {3},
   urldate  = {2021-12-20},
@@ -160,26 +214,30 @@
 
 @article{bhowmik_leveraging_2021,
   title      = {Leveraging {Vector} {Space} {Similarity} for {Learning}
-                {Cross}-{Lingual} {Word} {Embeddings}: {A} {Systematic} {Review}},
+                {Cross}-{Lingual} {Word} {Embeddings}: {A} {Systematic}
+                {Review}},
   volume     = {1},
   copyright  = {http://creativecommons.org/licenses/by/3.0/},
-  shorttitle = {Leveraging {Vector} {Space} {Similarity} for {Learning} {Cross}-{Lingual}
+  shorttitle = {Leveraging {Vector} {Space} {Similarity} for {Learning}
+                {Cross}-{Lingual}
                 {Word} {Embeddings}},
   url        = {https://www.mdpi.com/2673-6470/1/3/11},
   doi        = {10.3390/digital1030011},
   abstract   = {This article presents a
-                systematic literature review on quantifying the proximity between
-                independently trained monolingual word embedding spaces. A search was carried
-                out in the broader context of inducing bilingual lexicons from cross-lingual
-                word embeddings, especially for low-resource languages. The returned articles
-                were then classified. Cross-lingual word embeddings have drawn the attention
-                of researchers in the field of natural language processing (NLP). Although
-                existing methods have yielded satisfactory results for resource-rich languages
-                and languages related to them, some researchers have pointed out that the same
-                is not true for low-resource and distant languages. In this paper, we report
-                the research on methods proposed to provide better representation for
-                low-resource and distant languages in the cross-lingual word embedding
-                space.},
+                systematic literature review on quantifying the proximity
+                between independently trained monolingual word embedding spaces.
+                A search was carried out in the broader context of inducing
+                bilingual lexicons from cross-lingual word embeddings,
+                especially for low-resource languages. The returned articles
+                were then classified. Cross-lingual word embeddings have drawn
+                the attention of researchers in the field of natural language
+                processing (NLP). Although existing methods have yielded
+                satisfactory results for resource-rich languages and languages
+                related to them, some researchers have pointed out that the same
+                is not true for low-resource and distant languages. In this
+                paper, we report the research on methods proposed to provide
+                better representation for low-resource and distant languages in
+                the cross-lingual word embedding space.},
   language   = {en},
   number     = {3},
   urldate    = {2021-12-20},
@@ -188,13 +246,12 @@
   month      = sep,
   year       = {2021},
   keywords   = {cross-lingual word
-                embedding, orthogonal mapping, isomorphic assumption, distant languages,
-                low-resource languages},
+                embedding, orthogonal mapping, isomorphic assumption, distant
+                languages, low-resource languages},
   pages      = {145--161}
 }
 
-% definition applications
-@inproceedings{barba_exemplification_2021,
+% definition applications @inproceedings{barba_exemplification_2021,
   address    = {Montreal, Canada},
   title      = {Exemplification {Modeling}:
                 {Can} {You} {Give} {Me} an {Example}, {Please}?},
@@ -203,12 +260,11 @@
   url        = {https://www.ijcai.org/proceedings/2021/520},
   doi        = {10.24963/ijcai.2021/520},
   abstract   = {Recently, generative approaches have
-                been used effectively to
-                provide definitions of words in their context. However, the
-                opposite, i.e., generating a usage example given one or more
-                words along with their definitions, has not yet been
-                investigated. In this work, we introduce the novel task of
-                Exemplification Modeling (ExMod), along with a
+                been used effectively to provide definitions of words in their
+                context. However, the opposite, i.e., generating a usage example
+                given one or more words along with their definitions, has not
+                yet been investigated. In this work, we introduce the novel task
+                of Exemplification Modeling (ExMod), along with a
                 sequence-to-sequence architecture and a training procedure for
                 it. Starting from a set of (word, definition) pairs, our
                 approach is capable of automatically generating high-quality

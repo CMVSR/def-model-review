@@ -1,6 +1,34 @@
 \section{Methodologies Explored}
 Methods -- ML, Deep Learning, Active Learning, Reinforcement Learning, etc.
 
+\begin{longtable}{|p{3.5cm}|p{3.5cm}|p{3.5cm}|p{3.5cm}|}
+    \caption{Definition Modeling Methods}                                                                                                                                                                                                                                                                                                                                                  \\
+    \hline
+    Article                                                                                                                  & Evaluation                                                       & Dataset                                                                                                                                       & Models                                   \\
+    \hline
+    \citeauthor{noraset_definition_2016} \citeyear{noraset_definition_2016} \cite{noraset_definition_2016}                   & Perplexity, BLEU                                                 & GCIDE, Custom                                                                                                                                 & RNN, Word2Vec, LSTM                      \\
+    \hline
+    \citeauthor{gadetsky_conditional_2018} \citeyear{gadetsky_conditional_2018} \cite{gadetsky_conditional_2018}             & Perplexity, BLEU                                                 & Oxford                                                                                                                                        & LSTM, Word2Vec, SkipGram                 \\
+    \hline
+    \citeauthor{chang_what_2019} \citeyear{chang_what_2019} \cite{chang_what_2019}                                           & Precision, ROUGE-L, Cosine similarity                            & Oxford                                                                                                                                        & ELMo, BERT, FastText                     \\
+    \hline
+    \citeauthor{washio_bridging_2019} \citeyear{washio_bridging_2019} \cite{washio_bridging_2019}                            & Perplexity, BLEU                                                 & \cite{noraset_definition_2016}, \cite{gadetsky_conditional_2018}                                                                              & Encoder/decoder                          \\
+    \hline
+    \citeauthor{mickus_mark_2019} \citeyear{mickus_mark_2019} \cite{mickus_mark_2019}                                        & Perplexity                                                       & \cite{noraset_definition_2016}, \cite{gadetsky_conditional_2018}, Custom                                                                      & GloVe, Transformer, sequence-to-sequence \\
+    \hline
+    \citeauthor{li_explicit_2020} \citeyear{li_explicit_2020} \cite{li_explicit_2020}                                        & BLEU, METEOR, Human                                              & WordNet, Oxford                                                                                                                               & CNN, LSTM                                \\
+    \hline
+    \citeauthor{bevilacqua_generationary_2020} \citeyear{bevilacqua_generationary_2020} \cite{bevilacqua_generationary_2020} & Perplexity, BLEU, ROUGE-L, METEOR, BERTScore                     & Oxford \cite{chang_what_2019}, Sem-Cor \cite{miller_semantic_1993}, Wiktionary, GCIDE \cite{noraset_definition_2016}, Hei++ (Custom), WordNet & BART                                     \\
+    \hline
+    \citeauthor{sojka_evaluating_2020} \citeyear{sojka_evaluating_2020} \cite{sojka_evaluating_2020}                         & BLEU, rBLEU (recall-based), fBLEU (harmonic mean of BLEU, rBLEU) & Wiktionary, OmegaWiki, WordNet                                                                                                                & AdaGram, Word2Vec, CNN, RNN              \\
+    \hline
+    \citeauthor{huang_cdm_2021} \citeyear{huang_cdm_2021} \cite{huang_cdm_2021}                                              & BLUE, ROUGE-L, METEOR, BERTScore                                 & Wikipedia                                                                                                                                     & BERT                                     \\
+    \hline
+    \citeauthor{reid_vcdm_2020} \citeyear{reid_vcdm_2020} \cite{reid_vcdm_2020}                                              & BLEU, BERTScore (Precision, Recall, F1), Human                   & Oxford, Urban, Wikipedia, Cambridge, Robert (French)                                                                                          & BERT, LSTM                               \\
+    \hline
+    % \citeauthor{noraset_definition_2016} \citeyear{noraset_definition_2016} \cite{noraset_definition_2016}                   & Perplexity, BLEU                             & GCIDE, Custom                                                                                                                                 & RNN, Word2Vec, LSTM                      \\
+\end{longtable}
+
 \subsection{Language Models}
 A definition model is a language model that is trained on a set of definitions.
 The goal of a definition model is to learn to generate a definition %
