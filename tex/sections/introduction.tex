@@ -16,11 +16,12 @@ applied on word embeddings can show meaningful language understanding
 \cite{mikolov_distributed_2013}. However, as continuous representations, the
 interpretability of word embeddings is limited.
 
-Thus, the problem of definition modeling was proposed to evaluate word
-embeddings \cite{noraset_definition_2016}. The task of definition modeling is to
-generate a definition for a given term. The goal of a model trained on this task
-is to train on word embedding and definition pairs in order to learn to generate
-a definition for a given word or phrase.
+Thus, the problem of definition modeling was proposed by
+\citeauthor{noraset_definition_2016} to evaluate word embeddings
+\cite{noraset_definition_2016}. The task of definition modeling is to generate a
+definition for a given term. The goal of a model trained on this task is to
+train on word embedding and definition pairs in order to learn to generate a
+definition for a given word or phrase.
 
 \begin{figure}
     \centering
@@ -37,9 +38,9 @@ problem was not addressed in the original work as only one definition mapped to
 each word. Once researchers attempted to address this problem, they found that
 the definition model was unable to learn the semantics of the polyseme with only
 the word as an input. Therefore, it was necessary to augment the definition
-model with additional information, namely, a context sentence which sets the
-word to be defined \textit{definiendum} inside as an example sentence. This
-method has been shown to allieviate the problem of generating definitions for
-polysemes and also improve the performance of the definition model on several
-measures \cite{gadetsky_conditional_2018}, \cite{mickus_mark_2019},
+model with additional information, namely, an example sentence which sets the
+word to be defined (\textit{definiendum}) inside to provide context. This method
+has been shown to allieviate the problem of generating definitions for polysemes
+and also improve the performance of the definition model on several measures
+\cite{gadetsky_conditional_2018}, \cite{mickus_mark_2019},
 \cite{bevilacqua_generationary_2020}.

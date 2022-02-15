@@ -1,6 +1,50 @@
-\section{Future Direction and Trends}
-Current problem fields in definition generation include technical terms (terms
-which require expert knowledge of the field) \cite{huang_cdm_2021}, and
-adjective-noun phrases which are difficult to define without context
-\cite{bevilacqua_generationary_2020}. Defining words in a non-english source
-language is also of importance to this task.
+\section{Challenges and Future Directions}
+Definition modeling faces a number of challenges which allows new opportunities
+for future research to be developed.
+
+\textbf{Polysemes:} The basic definition model cannot be used to generate
+defintions for \textit{polysemes}, words with multiple definitions. Seen as a
+major challenge for the original definition model, many researchers have
+proposed methods to tackle this problem. However, many of the proposed
+approaches require context of the \textit{definiendum} to be provided to the
+model. Methods which can provide appropriate definitions for polysemes without
+context may be valuable in tasks with limited language resources.
+
+\textbf{Technical Terms:} It is difficult to generate definitions for technical
+terms which require expert knowledge of the field \cite{huang_cdm_2021}. It may
+be necessary to provide specific context in order to appropriately generate
+definitions for technical terms. However, obtaining the context requires
+scraping and parsing of web resources outside of the standard datasets
+available. Therefore, in order to properly generate definitions for technical
+terms, it may be necessary to augment dictionary datasets.
+
+\textbf{Word Combinations:} Complex word combinations, including proverbs and
+sayings are rarely covered by sense inventories
+\cite{bevilacqua_generationary_2020}. In word combinations, multiple words are
+used in series in order to create a new phraseological unit %TODO: CITATION NEEDED.
+It seems context may be necessary to parse most of these word combinations, but
+more research is needed to determine if this is the case.
+
+\textbf{Non-English Words:} As many of the datasets developed for defintion
+modeling thus far take information from English dictionaries, most methods also
+are only applied to English words. However, as there exists a number of lexical
+resources in other languages, it should be possible to generate definitions for
+non-English words. In order to evaluate the quality of word embeddings for
+non-English words within definition modeling, it is necessary to develop a
+method that can generate definitions for non-English words. There is some work
+in Chinese definition modeling \cite{zheng_decompose_2021} and in French
+definition modeling \cite{reid_vcdm_2020}, however, more research is needed to
+determine the best method for generating definitions for non-English words, and
+especially for a model which can generalize across multiple languages.
+
+\textbf{Evaluation Criteria:} The definition model has been evaluated on a
+number of metrics, including precision, perplexity, BLEU, and ROUGE. However,
+as the goal of defintion modeling is to improve interpretability of word
+embeddings, it is important to select the evaluation criteria correctly. Also of
+note, many definitions consist of a single word, which can interfere with
+evaluation metrics such as BLEU and ROUGE scores \cite{mickus_mark_2019}. Human
+evaluation of generated definitions can be useful but also can be difficult for
+researchers to obtain.
+
+\textbf{Circular Definitions:} Special care should be taken when generating
+definitions for words that are circularly defined.

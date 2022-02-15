@@ -1,2 +1,2 @@
 # def-model-survey
-Survey on Definition Modelling
+Survey on Definition Modeling
