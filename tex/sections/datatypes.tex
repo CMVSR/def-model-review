@@ -2,47 +2,48 @@
 This section discusses the available datasets used to solve different etymological tasks. The authors create, filter, or utilize existing data sources depending on the task. The most commonly used dataset is Wikitonary~\cite{wiktionary}, an online editable large multilingual online dictionary. Wiktionary dictionary contains the definition of words and related information to understand those definitions. Therefore, it includes etymologies, cognates, pronunciations, antonyms, synonyms, and translations. Researchers synthesize this dataset to create their task-specific dataset. Fourier~\cite{fourrier_methodological_2020} creates a lexical etymological database, EtymDB 2.0 from Wiktionary. Winston~\cite{wu_computational_2020} developed Wiktionary parser to parse etymology. Etymological Wordnet captures etymological word-formation information between two multilingual words~\cite{demelo_etymological_2014}. Starling is a derived dataset from the Uralic language family and contains over 2500 cognate sets\cite{nouri_alignment_2016}. Researchers proposed various etymological tasks such as parsing etymology, mapping cognates, establishing relationships between words to find word origin, modeling phylogenetic inferences that take aligned cognates, etc. We identify related etymological datasets and corresponding research tasks and summarize them in table~\ref{tab:datasets_task}.
 
 \begin{longtable}
-    {|p{2cm}|p{2cm}|p{2cm}|p{4cm}|p{4cm}|}
-    \caption{Document Modeling Available Dataset and Task}
-    \label{tab:datasets_task}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 \\\hline
-    Article                                              & dataset                                                                                                           & types                                                                                         & Brief Description                                                                                                                                                                                                         & task                                                                                                                                                               \\ \hline
-    Fourrier et. al. \cite{fourrier_methodological_2020} & EtymDB 2.0                                                                                                        & Lexical database                                                                              & This etymological dataset was generated form Wiktionary. Contains 1.8 million lexemes and 700,000 fine-grained etymological relations over                                                                                & Proposed guidelines to generate etimological dataset and also introduces usescases such as phylogenetic tree generation, low resource
-    machine translation and medieval languages study.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         \\ \hline
-    Gerard~\cite{demelo_etymological_2014}               & Etymological Wordnet                                                                                              & Definition                                                                                    & Contains multilingual, machine readable word origin networks of over  500,000 word origin created from Wiktionary                                                                                                         & Focuses on creating word-origin and linking using creation using custom pattern matching techniques.                                                               \\ \hline
+{|p{2cm}|p{2cm}|p{2cm}|p{4cm}|p{4cm}|}
+\caption{Document Modeling Available Dataset and Task}
+    \label{tab:datasets_task}\\\hline
+    Article & dataset & types & Brief Description & task\\ \hline
+        Fourrier et. al. \cite{fourrier_methodological_2020} & EtymDB 2.0 & Lexical database & This etymological dataset was generated form Wiktionary. Contains 1.8 million lexemes and 700,000 fine-grained etymological relations over  &  Proposed guidelines to generate etimological dataset and also introduces usescases such as phylogenetic tree generation, low resource
+machine translation and medieval languages study. \\ \hline
+Gerard~\cite{demelo_etymological_2014}& Etymological Wordnet & Definition & Contains multilingual, machine readable word origin networks of over  500,000 word origin created from Wiktionary & Focuses on creating word-origin and linking using creation using custom pattern matching techniques. \\ \hline
 
-    Benjamin \cite{mericli_annotating_2015}              & Turkic Language Dictionary                                                                                        & dictionary                                                                                    & This Turkic language dictionary contains 1996 English glosses and corresponding translation in eight Turkic languages such as  Turkish, Kyrgyz, Turkmen, Azerbaijani, Kazakh, Tatar,
-    Uzbek, and Uyghur.                                   & The author proposed a methodology for annotating Cognates and Etymological Origin for Turkic language.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             \\ \hline
+Benjamin \cite{mericli_annotating_2015}& Turkic Language Dictionary & dictionary & This Turkic language dictionary contains 1996 English glosses and corresponding translation in eight Turkic languages such as  Turkish, Kyrgyz, Turkmen, Azerbaijani, Kazakh, Tatar, 
+ Uzbek, and Uyghur. & The author proposed a methodology for annotating Cognates and Etymological Origin for Turkic language.\\ \hline
+ 
+ Jack (2016)~\cite{bowers_deep_2016} & - & generic & Digital dictionary & present a set of modeling principles for representing etymological data using TEI framework. \\ \hline
+ 
+  
+   Lisa (2020)~\cite{bowers_deep_2016} & Gathered from parrallel corpus& Multilingual & Word-based semantic analysis based on two major word-level corpus SWADESH Words, PEREIRA Words. Sentence level semantic analysis using corpus EUROPARL Sentences.  & Proposed method for similarity analysis and identify semantic-drift between language families.\\ \hline
+   
+   Barun et. al. (2019)~\cite{patra_bilingual_2019} & MUSE and VecMap dataset & Multilingual & MUSE dataset contains embeddings on Wikipedia and bilingual dictionaries using Facebook internal tools. VecMap contains CBOW embedding on WacKy crawling corpora. & Quantitatively Estimate isometry between embedding. \\ \hline
+  
+  
+    Winston et.al. (2020)~\cite{wu_computational_2020} & Wiktionary dictionary & Multilingual  & online editable multilingual dictionary,  & Developed parser for Wiktionary dataset and also predict etimology. \\ \hline
+    
+    Winston et.al. (2021)~\cite{wu_2021_sequence}\cite{} & Wiktionary (eng) & English & etymology information from the English
+edition of Wiktionary using Yawipa. & Proposed computation methodology for establishing the directed etymology relationship between etymology between a
+donor word and an incorporated word.  \\ \hline
+    
+    Hannes (2012)~\cite{wettig_using_2012} & StarLing, and The Origin of Finnish Words & StarLing is Uralic Database. "The Origin of Finnish Words" is Finnish etymological dictionary& StarLing contains over 2500 cognates. The Finnish etymological dictionary has over 5000 cognate sets & Proposed methodology to find the best alignment at the sound level. \\ \hline
+    
+    Javad (2013)~\cite{nouri_alignment_2016} & StarLing  & Uralic database & Contains 2586 Uralic cognate sets & Used aligned cognates as input to model for phylogenetic inference
+from population genetics. In this task, they utilize sub-tree of Uralic, viz., the Finno-Ugric subfamily from Uralic database. \\ \hline
+    
+    Carlo (2019)\cite{DBLP:journals_corr_abs-1908-02477} & Ab Antiquo & Multilingual& Dataset contains cognates and their proto-words in both orthographic and phonetic forms in six different languages. It has in total of 8,799 cognate sets.  & Augment dataset from Wiktionary and developed comparative methods that takes daughter language cognates and identify the form of proto-words in ancestor language.   \\ \hline
+    
+    Lisa (2013)\cite{beinborn-etal-2013-cognate} & multilingual resources UBY and Universal WordNet (UWN) & Multilingual Word pairs & Over 1000 cognate pairs. & Generate cognates using character-based machine translation  approach and evaluate model on three language
+pairs English-Russian, English-Greek, and
+English-Farsi. \\ \hline
 
-    Jack (2016)~\cite{bowers_deep_2016}                  & -                                                                                                                 & generic                                                                                       & Digital dictionary                                                                                                                                                                                                        & present a set of modeling principles for representing etymological data using TEI framework.                                                                       \\ \hline
+Sagot (2017)\cite{Sagot2017ExtractingAE}& Etymological Dataset & Multilingual &  etymological dataset containing nearly one million lexemes and half million relationship between lexemes. & Extract etymology from Wiktionary. \\\hline
 
-
-    Lisa (2020)~\cite{bowers_deep_2016}                  & Gathered from parrallel corpus                                                                                    & Multilingual                                                                                  & Word-based semantic analysis based on two major word-level corpus SWADESH Words, PEREIRA Words. Sentence level semantic analysis using corpus EUROPARL Sentences.                                                         & Proposed method for similarity analysis and identify semantic-drift between language families.                                                                     \\ \hline
-
-    Barun et. al. (2019)~\cite{patra_bilingual_2019}     & MUSE and VecMap dataset                                                                                           & Multilingual                                                                                  & MUSE dataset contains embeddings on Wikipedia and bilingual dictionaries using Facebook internal tools. VecMap contains CBOW embedding on WacKy crawling corpora.                                                         & Quantitatively Estimate isometry between embedding.                                                                                                                \\ \hline
-
-
-    Winston et.al. (2020)~\cite{wu_computational_2020}   & Wiktionary dictionary                                                                                             & Multilingual                                                                                  & online editable multilingual dictionary,                                                                                                                                                                                  & Developed parser for Wiktionary dataset and also predict etimology.                                                                                                \\ \hline
-
-    Winston et.al. (2021)~\cite{wu_2021_sequence}\cite{} & Wiktionary (eng)                                                                                                  & English                                                                                       & etymology information from the English
-    edition of Wiktionary using Yawipa.                  & Proposed computation methodology for establishing the directed etymology relationship between etymology between a
-    donor word and an incorporated word.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      \\ \hline
-
-    Hannes (2012)~\cite{wettig_using_2012}               & StarLing, and The Origin of Finnish Words                                                                         & StarLing is Uralic Database. "The Origin of Finnish Words" is Finnish etymological dictionary & StarLing contains over 2500 cognates. The Finnish etymological dictionary has over 5000 cognate sets                                                                                                                      & Proposed methodology to find the best alignment at the sound level.                                                                                                \\ \hline
-
-    Javad (2013)~\cite{nouri_alignment_2016}             & StarLing                                                                                                          & Uralic database                                                                               & Contains 2586 Uralic cognate sets                                                                                                                                                                                         & Used aligned cognates as input to model for phylogenetic inference
-    from population genetics. In this task, they utilize sub-tree of Uralic, viz., the Finno-Ugric subfamily from Uralic database.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            \\ \hline
-
-    Carlo (2019)\cite{DBLP:journals_corr_abs-1908-02477} & Ab Antiquo                                                                                                        & Multilingual                                                                                  & Dataset contains cognates and their proto-words in both orthographic and phonetic forms in six different languages. It has in total of 8,799 cognate sets.                                                                & Augment dataset from Wiktionary and developed comparative methods that takes daughter language cognates and identify the form of proto-words in ancestor language. \\ \hline
-
-    Lisa (2013)\cite{beinborn-etal-2013-cognate}         & multilingual resources UBY and Universal WordNet (UWN)                                                            & Multilingual Word pairs                                                                       & Over 1000 cognate pairs.                                                                                                                                                                                                  & Generate cognates using character-based machine translation  approach and evaluate model on three language
-    pairs English-Russian, English-Greek, and
-    English-Farsi.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            \\ \hline
-
-    Sagot (2017)\cite{Sagot2017ExtractingAE}             & Etymological Dataset                                                                                              & Multilingual                                                                                  & etymological dataset containing nearly one million lexemes and half million relationship between lexemes.                                                                                                                 & Extract etymology from Wiktionary.                                                                                                                                 \\\hline
-
-    Vivi (2013)\cite{nastase-strapparava-2013-bridging}  & Comparable Corpora of News Article                                                                                & Multilingual                                                                                  & This dataset consists of comparable corpora of news articles in English and Italian. Each news article is annotated with any of given four categories. It contains in total of 27821 English and 32354 Italian documents. & Proposed methodology for cross-language document categorization using etymological ancestors of the words of the documents.                                        \\ \hline
-
+    Vivi (2013)\cite{nastase-strapparava-2013-bridging} & Comparable Corpora of News Article & Multilingual & This dataset consists of comparable corpora of news articles in English and Italian. Each news article is annotated with any of given four categories. It contains in total of 27821 English and 32354 Italian documents. & Proposed methodology for cross-language document categorization using etymological ancestors of the words of the documents. \\ \hline
+    
     % \end{tabular}
+
 \end{longtable}
 
 % \begin{table}[htbp]
@@ -55,30 +56,30 @@ This section discusses the available datasets used to solve different etymologic
 
 % Benjamin \cite{mericli_annotating_2015}& Turkic Language Dictionary & dictionary & This Turkic language dictionary contains 1996 English glosses and corresponding translation in eight Turkic languages such as  Turkish, Kyrgyz, Turkmen, Azerbaijani, Kazakh, Tatar, 
 %  Uzbek, and Uyghur. & The author proposed a methodology for annotating Cognates and Etymological Origin for Turkic language.\\ \hline
-
+ 
 %  Jack (2016)~\cite{bowers_deep_2016} & - & generic & Digital dictionary & present a set of modeling principles for representing etymological data using TEI framework. \\ \hline
-
-
+ 
+  
 %   Lisa (2020)~\cite{bowers_deep_2016} & Gathered from parrallel corpus& Multilingual & Word-based semantic analysis based on two major word-level corpus SWADESH Words, PEREIRA Words. Sentence level semantic analysis using corpus EUROPARL Sentences.  & Proposed method for similarity analysis and identify semantic-drift between language families.\\ \hline
-
+   
 %   Barun et. al. (2019)~\cite{patra_bilingual_2019} & MUSE and VecMap dataset & Multilingual & MUSE dataset contains embeddings on Wikipedia and bilingual dictionaries using Facebook internal tools. VecMap contains CBOW embedding on WacKy crawling corpora. & Quantitatively Estimate isometry between embedding. \\ \hline
-
-
+  
+  
 %     Winston et.al. (2020)~\cite{wu_computational_2020} & Wiktionary dictionary & Multilingual  & online editable multilingual dictionary,  & Developed parser for Wiktionary dataset and also predict etimology. \\ \hline
-
+    
 %     Winston et.al. (2021)~\cite{wu_2021_sequence}\cite{} & Wiktionary (eng) & English & etymology information from the English
 % edition of Wiktionary using Yawipa. & Proposed computation methodology for establishing the directed etymology relationship between etymology between a
 % donor word and an incorporated word.  \\ \hline
-
+    
 %     Hannes (2012)~\cite{wettig_using_2012} & StarLing, and The Origin of Finnish Words & StarLing is Uralic Database. "The Origin of Finnish Words" is Finnish etymological dictionary& StarLing contains over 2500 cognates. The Finnish etymological dictionary has over 5000 cognate sets & Proposed methodology to find the best alignment at the sound level. \\ \hline
-
+    
 %     Javad (2013)\cite{nouri_alignment_2016} & StarLing  & Uralic database & Contains 2586 Uralic cognate sets & Used aligned cognates as input to model for phylogenetic inference
 % from population genetics. In this task, they utilize sub-tree of Uralic, viz., the Finno-Ugric subfamily from Uralic database. \\ \hline
-
+    
 %     Carlo (2019)\cite{DBLP:journals_corr_abs-1908-02477} & Ab Antiquo & Multilingual& Dataset contains cognates and their proto-words in both orthographic and phonetic forms in six different languages. It has in total of 8,799 cognate sets.  & Augment dataset from Wiktionary and developed comparative methods that takes daughter language cognates and identify the form of proto-words in ancestor language.   \\ \hline
-
+    
 %     author (year)\cite{} & dataset & type& data descp & task \\ \hline
-
+    
 %     \end{tabular}
 %     \caption{Document Modeling Available Dataset and Task}
 %     \label{tab:datasets_task}

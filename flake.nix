@@ -19,7 +19,10 @@
             # tex
             (pkgs.callPackage ./tex-env.nix {
               extraTexPackages = {
-                inherit (pkgs.texlive) latexmk latexindent;
+                inherit (pkgs.texlive)
+                  latexmk
+                  latexindent
+                  ;
               };
             })
           ];

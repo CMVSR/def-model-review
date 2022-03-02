@@ -5,10 +5,10 @@
 \def\update{2018/10/25 v1.0}
 
 \newcommand{\journalname}{Applied Computing and Intelligence}
-\newcommand{\journalclass}{aci.cls}
+\newcommand{\journalclass}{aims.cls}
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{aci}[\update\ \journalclass]
+\ProvidesClass{aims}[\update\ \journalclass]
 
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{article}}
 \ProcessOptions
@@ -302,6 +302,12 @@
     \let\doilinkitem=\relax%
   }%
 }
+
+\def\doilink#1{\@ifundefined{href}
+ {{http://dx.doi.org/#1}}
+  {\href{http://dx.doi.org/#1}{{#1}}}
+ }
+
 \let\Emph\emph
 \def\bibitem{\let\emph\Emph\@ifnextchar[{\@ltestbibitem}{\@testbibitem}}
 \def\@testbibitem#1{\@ifnextchar({\@mrtestbibitem{#1}}{\@doitestbibitem{#1}}}
@@ -344,7 +350,7 @@
 
 \def\dateinfo{%
 % {\fontsize{7.5}{6.5\p@}\selectfont
-  Received \Received, Accepted \Accepted, Published \Published}
+  Received \Received, Revised \Revised, Accepted \Accepted, Published \Published}
 
 \def\journalinfo{%
 %  {\fontsize{9}{6.5\p@}\selectfont
@@ -367,13 +373,14 @@
     \noindent%\hspace*{-12pt}
     \begin{tabular}[b]{l}
      \includegraphics[width=0.2\textwidth]{logo_new.pdf} \\[3ex]
-     \href{http://http://www.aimsciences.org/journal/aimsaci}{http://www.aimsciences.org/journal/aimsaci}
+     \href{https://www.aimspress.com/journal/aci}{https://www.aimspress.com/journal/aci}
     \end{tabular}
     \hfill
     \begin{tabular}[b]{l}
       \Publname \\
       \journalinfo \\
        Received: \Received \\
+       Revised: \Revised \\
       Accepted: \Accepted \\
       Published: \Published \\ [2ex]
     \end{tabular}  \par
