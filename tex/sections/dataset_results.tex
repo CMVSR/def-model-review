@@ -1,8 +1,33 @@
 \section{Datasets and SOTA Results}
 
-Short description of each dataset should be helpful here.
+\textbf{GCIDE/WordNet:} The GNU Collaborative International Dictionary of
+English (GCIDE) is a free dictionary supplemented with some defintions from
+WordNet. Available under the GNU General Public License, GCIDE is a useful
+corpus for dictionary definitions for general words. We provide dataset
+statistics of GCIDE in Table \ref{tab:gcide_dataset_stats}. This dataset was
+modified by \citeauthor*{noraset_definition_2016} for their original definition model
+\cite{noraset_definition_2016}.
 
-A short table including statistics about the datasets -- Statistics of benchmark datasets -- dataset name, number of instances, number of classes etc.
+\textbf{Oxford Dictionary:} The Oxford Dictionary of English is a free
+dictionary of English words and phrases. Collected by \citeauthor*{gadetsky_conditional_2018},
+this dataset features contextual information for each word along with the
+definition \cite{gadetsky_conditional_2018}. This dataset is useful for evaluating the ability of a model to
+generate definitions for polysemous words. Dataset statistics are provided in
+Table \ref{tab:oxford_dataset_stats}.
+
+\textbf{Urban Dictionary:} The Urban Dictionary is a free dictionary of slang
+words and phrases where definitions are crowdsourced by users. Proposed by
+\citeauthor*{ni_learning_2017}, the Urban Dictionary dataset is useful for idioms and
+rarely-used phrases which are not contained in other dictionary datasets
+\cite{ni_learning_2017}. We provide dataset statistics of Urban Dictionary in Table
+\ref{tab:urban_dataset_stats}.
+
+\textbf{Wikpedia:} The English Wikipedia is a free online encyclopedia. Proposed
+by \citeauthor*{ishiwatari_learning_2019}, it combines the useful tasks of WordNet, Oxford
+Dictionary, and Urban Dictionary, since it contains descriptions of many
+concepts along with context to be used in context-aware models \cite{ishiwatari_learning_2019}. Statistics are
+available in Table \ref{tab:wikipedia_dataset_stats}.
+
 
 \subsection{State-of-the-art results of Definition Modeling}
 One small paragraph and list of tables related to results.

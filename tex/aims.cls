@@ -5,10 +5,10 @@
 \def\update{2018/10/25 v1.0}
 
 \newcommand{\journalname}{Applied Computing and Intelligence}
-\newcommand{\journalclass}{aims.cls}
+\newcommand{\journalclass}{aci.cls}
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{aims}[\update\ \journalclass]
+\ProvidesClass{aci}[\update\ \journalclass]
 
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{article}}
 \ProcessOptions
