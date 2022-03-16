@@ -1,33 +1,50 @@
-\section{Datasets and SOTA Results}
+\section{Datasets and Statistics}
 
 \textbf{GCIDE/WordNet:} The GNU Collaborative International Dictionary of
-English (GCIDE) is a free dictionary supplemented with some defintions from
+English (GCIDE) is a free dictionary supplemented with some definitions from
 WordNet. Available under the GNU General Public License, GCIDE is a useful
-corpus for dictionary definitions for general words. We provide dataset
-statistics of GCIDE in Table \ref{tab:gcide_dataset_stats}. This dataset was
-modified by \citeauthor*{noraset_definition_2016} for their original definition model
+corpus for dictionary definitions for general words. This dataset was modified
+by Noraset et al. for their original definition model
 \cite{noraset_definition_2016}.
 
 \textbf{Oxford Dictionary:} The Oxford Dictionary of English is a free
-dictionary of English words and phrases. Collected by \citeauthor*{gadetsky_conditional_2018},
-this dataset features contextual information for each word along with the
-definition \cite{gadetsky_conditional_2018}. This dataset is useful for evaluating the ability of a model to
-generate definitions for polysemous words. Dataset statistics are provided in
-Table \ref{tab:oxford_dataset_stats}.
+dictionary of English words and phrases. Collected by
+Gadetsky et al., this dataset features contextual
+information for each word along with the definition
+\cite{gadetsky_conditional_2018}. This dataset is useful for evaluating the
+ability of a model to generate definitions for polysemous words.
 
 \textbf{Urban Dictionary:} The Urban Dictionary is a free dictionary of slang
-words and phrases where definitions are crowdsourced by users. Proposed by
-\citeauthor*{ni_learning_2017}, the Urban Dictionary dataset is useful for idioms and
-rarely-used phrases which are not contained in other dictionary datasets
-\cite{ni_learning_2017}. We provide dataset statistics of Urban Dictionary in Table
-\ref{tab:urban_dataset_stats}.
+words and phrases where definitions are crowd-sourced by users. Proposed by
+Ni et al., the Urban Dictionary dataset is useful for
+idioms and rarely-used phrases which are not contained in other dictionary
+datasets \cite{ni_learning_2017}.
 
 \textbf{Wikpedia:} The English Wikipedia is a free online encyclopedia. Proposed
-by \citeauthor*{ishiwatari_learning_2019}, it combines the useful tasks of WordNet, Oxford
-Dictionary, and Urban Dictionary, since it contains descriptions of many
-concepts along with context to be used in context-aware models \cite{ishiwatari_learning_2019}. Statistics are
-available in Table \ref{tab:wikipedia_dataset_stats}.
+by Ishiwatari et al., it combines the useful tasks of
+WordNet, Oxford Dictionary, and Urban Dictionary, since it contains descriptions
+of many concepts along with context to be used in context-aware models
+\cite{ishiwatari_learning_2019}.
 
+\textbf{Wiktionary:} Wiktionary is a free online dictionary from the same 
+parent organization as Wikipedia (Wikimedia Foundation). Used by
+several researchers, it is useful as it provides a definitions for a large
+number of languages. Researchers who wish to use Wiktionary as a dataset for
+multi-lingual definition modeling may find this dataset useful. We share statistics
+for the English version of Wiktionary, since most definition modeling methods
+focus on English.
 
-\subsection{State-of-the-art results of Definition Modeling}
-One small paragraph and list of tables related to results.
+\begin{table}
+    \centering
+    \caption{Dataset Statistics.}
+    \include{assets/dataset_stats}
+    \label{tab:dataset_stats}
+\end{table}
+
+\subsection{Statistics}
+Statistics of the datasets listed above are shared in Table
+\ref{tab:dataset_stats}. Definition and polyseme ratio denotes the ratio of
+each to the number of words available to illustrate the prominence of polysemes
+in each dataset. Dataset statistics were calculated for the benchmark datasets
+WordNet, Urban Dictionary, Oxford Dictionary, and Wikipedia. Additionally, we
+share statistics on the raw GCIDE and Wiktionary datasets.

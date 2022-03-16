@@ -13,11 +13,12 @@
 \usetikzlibrary{automata,positioning,arrows}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\usepackage[backend=bibtex,sorting=none]{biblatex}
-\addbibresource{./references/paper.bib}
-\addbibresource{./references/unsorted.bib}
-\addbibresource{./references/def_model.bib}
-\addbibresource{./references/comp_etym.bib}
+\usepackage[numbers]{natbib}
+% \usepackage[backend=bibtex,sorting=none]{biblatex}
+% \addbibresource{./references/paper.bib}
+% \addbibresource{./references/unsorted.bib}
+% \addbibresource{./references/def_model.bib}
+% \addbibresource{./references/comp_etym.bib}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newcommand{\ep}{\varepsilon}
@@ -41,7 +42,7 @@ appear} \def\Received{June 2022} \def\Accepted{July 2022} \def\Published{October
 \author{%
     Noah Gardner\affil{1},
     Hafiz Khan\affil{2},
-    Chih-Cheng Hung\affil{1}\corrauth
+    and Chih-Cheng Hung\affil{1}\corrauth
 }%
 
 % \shortauthors is used in copyright information in the end of the paper
@@ -69,7 +70,7 @@ appear} \def\Received{June 2022} \def\Accepted{July 2022} \def\Published{October
     current research in definition modeling, and to provide a list of future
     directions and trends.
 \end{abstract}
-\keywords{Definition modeling; definition generation}
+\keywords{Definition modeling, definition generation, natural language processing, word embeddings}
 \maketitle
 
 \input{sections/introduction}
@@ -80,7 +81,17 @@ appear} \def\Received{June 2022} \def\Accepted{July 2022} \def\Published{October
 
 \FloatBarrier
 \section{Conclusion}
-Write text related to conclusion of this study.
+In this paper, we provide an overview of definition modeling methods 
+and word embeddings applied to the definition modeling task. We share
+some benchmark datasets and statistics. Finally, we discuss some challenges
+when it comes to solving this task. 
 
-\printbibliography
+\bibliographystyle{AIMS}
+\bibliography{
+./references/paper.bib,
+./references/unsorted.bib,
+./references/def_model.bib,
+./references/comp_etym.bib,
+}
+% \printbibliography
 \end{document}

@@ -1,9 +1,4 @@
-# nix
-result
-result/**
-
 # custom
-.direnv
 *.pdf
 !tex/logo_new.pdf
 !tex/logobottom.pdf
