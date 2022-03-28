@@ -4,7 +4,7 @@
 
 \def\update{2018/10/25 v1.0}
 
-\newcommand{\journalname}{Applied Computing and Intelligence}
+\newcommand{\journalname}{Applied Intelligence and Computing}
 \newcommand{\journalclass}{aci.cls}
 
 \NeedsTeXFormat{LaTeX2e}
@@ -123,6 +123,10 @@
   \gdef\@keywords{{\bfseries Keywords:}\ {#1}}}
 \let\@keywords\@empty
 
+\def\editor#1{%
+  \gdef\@editor{{ Academic Editor:}\ {#1}}}
+\let\@editor\@empty
+
 \def\corraddr#1{%
   \renewcommand{\thefootnote}{\fnsymbol{footnote}}%
   \gdef\@corraddr{%
@@ -185,9 +189,12 @@
     \vskip 12pt
       {\lineskip .5em%
        {\@address}\par}%
-    \vskip 12pt
+    %\vskip 12pt
       {\lineskip .5em%
       {\@corraddr}\par}%
+    \vskip 12pt
+      {\lineskip .5em%
+      {\@editor}\par}%
     \vskip 12pt%
       {\usebox\absbox\par}
     {\vspace{12pt}%
@@ -196,6 +203,7 @@
     \noindent\rule{\textwidth}{1mm}%
 \end{flushleft}
 }
+
 
 %\def\runningheads#1#2{\markboth{\uppercase{#1}}{\uppercase{#2}}}
 
@@ -302,12 +310,6 @@
     \let\doilinkitem=\relax%
   }%
 }
-
-\def\doilink#1{\@ifundefined{href}
- {{http://dx.doi.org/#1}}
-  {\href{http://dx.doi.org/#1}{{#1}}}
- }
-
 \let\Emph\emph
 \def\bibitem{\let\emph\Emph\@ifnextchar[{\@ltestbibitem}{\@testbibitem}}
 \def\@testbibitem#1{\@ifnextchar({\@mrtestbibitem{#1}}{\@doitestbibitem{#1}}}
@@ -350,7 +352,7 @@
 
 \def\dateinfo{%
 % {\fontsize{7.5}{6.5\p@}\selectfont
-  Received \Received, Revised \Revised, Accepted \Accepted, Published \Published}
+  Received \Received, Accepted \Accepted, Published \Published}
 
 \def\journalinfo{%
 %  {\fontsize{9}{6.5\p@}\selectfont
@@ -359,28 +361,30 @@
   \@ifundefined{href}{\DOI}{\href{http://dx.doi.org/\DOI}{DOI: \DOI}}
 }
 
-\def\volinfonew{Applied Computing and Intelligence, \currentvolume (\currentissue)}
+%\def\volinfonew{Applied Intelligence and Computing, \currentvolume (\currentissue)}
+\def\volinfonew{Applied Intelligence and Computing}
 \def\volinfo{Volume \currentvolume, Issue \currentissue}
 
 %\def\Publname{%
 % {\fontsize{7.5}{6.5\p@}\selectfont {Manuscript submitted to:}
 %  \hfill \volinfo, \pageinfo}}
-\def\Publname{{\volinfonew: \pageinfo}}
+%\def\Publname{{\volinfonew: \pageinfo}}
+\def\pageinfonew{{\currentvolume (\currentissue): \pageinfo}}
 
 \def\@serieslogo{%
   \vbox to\headheight{%
     \parindent\z@ \small
     \noindent%\hspace*{-12pt}
     \begin{tabular}[b]{l}
-     \includegraphics[width=0.2\textwidth]{logo_new.pdf} \\[3ex]
-     \href{https://www.aimspress.com/journal/aci}{https://www.aimspress.com/journal/aci}
+     \includegraphics[width=0.2\textwidth]{logo_new.pdf} \\[1ex]
+     \href{http://http://www.aimsciences.org/journal/aimsaci}{http://www.aimsciences.org/journal/aimsaci}
     \end{tabular}
     \hfill
     \begin{tabular}[b]{l}
-      \Publname \\
+      \volinfonew \\
+      \pageinfonew\\
       \journalinfo \\
        Received: \Received \\
-       Revised: \Revised \\
       Accepted: \Accepted \\
       Published: \Published \\ [2ex]
     \end{tabular}  \par
@@ -398,24 +402,7 @@
 
 \def\shortauthors#1{\def\shortauthor{#1}}
 
-\let\@shortauthors\@empty
-\gdef\copyrightinfo{%
-\begin{minipage}[l]{0.3\linewidth}
-\includegraphics[width=0.9\textwidth]{logobottom.pdf}
-\end{minipage}
-\hfill
-\begin{minipage}[l]{0.6\linewidth}
-  \copyright\,\currentyear\, \shortauthor,
-  licensee AIMS Press. This is an open access article distributed under
-  the terms of the Creative Commons Attribution License
-  (\href{http://creativecommons.org/licenses/by/4.0}%
-   {\rmfamily http://creativecommons.org/licenses/by/4.0})
-\end{minipage}
-  }
 
-\AtEndDocument{%
-  \vspace{1em}
-  \noindent\copyrightinfo}
 
 \hyphenation{com-mu-ni-ca-tions}
 

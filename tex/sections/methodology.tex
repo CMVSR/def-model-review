@@ -1,239 +1,331 @@
-\section{Methodologies Explored}
-We explored recent literature related to definition modeling and presented our
+\section{Methodologies explored}
+We explore recent literature related to definition modeling and present our
 findings related to explored methodology in this section. Definition generation
 is a critical task where multiple definitions can be generated for a single
 target word. Therefore, researchers focus on improving the definition generation
 task by applying various techniques. Two key technical aspects are observed in
-the literature -\emph{ i)} definition generation, and \emph{ii)} word embedding.
-Definition generation is considered a language modeling task, where we predict
-the joint probability of a  sequence of words, and based on maximum likelihood,
-the highest probability sequence returned as a definition of a given target
-word. Since definition mostly depends on the context of the target word, vector
+the literature: definition generation and word embedding. Definition generation
+is considered a language modeling task, where we predict the joint probability
+of a  sequence of words, and based on maximum likelihood, the highest
+probability sequence returned as a definition of a given target word. Since the
+output definition mostly depends on the context of the target word, vector
 representation of such target words is essential to capture context scenarios.
 Below we discuss both of these aspects, language modeling and word embedding
-techniques and related literature. A summary of definition modeling techniques
-is shared in Table \ref{tab:datasets_task}.
+techniques and related literature.
 
-\begin{longtable}{|c|p{3.5cm}|p{3.5cm}|c|}
-    
-    \caption{Definition Modeling Methods}\label{tab:datasets_task}                                                                                                                                                                                                                              \\
-    \hline
-    Article                              & Evaluation Criteria                                              & Dataset                                                                                                         & Models                                   \\
-    \hline
-    \cite{noraset_definition_2016}       & Perplexity, BLEU                                                 & GCIDE/WordNet                                                                                                   & RNN,  Word2Vec, LSTM                     \\
-    \hline
-    \cite{gadetsky_conditional_2018}     & Perplexity, BLEU                                                 & Oxford                                                                                                          & LSTM, Word2Vec, SkipGram                 \\
-    \hline
-    \cite{chang_what_2019}               & Precision,    ROUGE-L, Cosine similarity                         & Oxford                                                                                                          & ELMo, BERT, FastText                     \\
-    \hline
-    \cite{washio_bridging_2019}          & Perplexity, BLEU                                                 & \cite{noraset_definition_2016}, \cite{gadetsky_conditional_2018}                                                & Encoder/decoder                          \\
-    \hline
-    \cite{mickus_mark_2019}              & Perplexity                                                       & \cite{noraset_definition_2016}, \cite{gadetsky_conditional_2018}, Custom                                        & GloVe, Transformer, sequence-to-sequence \\
-    \hline
-    \cite{li_explicit_2020}              & BLEU, METEOR, Human                                              & WordNet, Oxford                                                                                                 & CNN, LSTM                                \\
-    \hline
-    \cite{bevilacqua_generationary_2020} & Perplexity, BLEU, ROUGE-L, METEOR, BERTScore                     & \cite{noraset_definition_2016}, Oxford, Sem-Cor \cite{miller_semantic_1993}, Wiktionary, GCIDE, Hei++, WordNet & BART                                     \\
-    \hline
-    \cite{kabiri_evaluating_2020}        & BLEU, rBLEU (recall-based), fBLEU (harmonic mean of BLEU, rBLEU) & Wiktionary, OmegaWiki, WordNet                                                                                  & AdaGram, Word2Vec, CNN, RNN              \\
-    \hline
-    \cite{huang_cdm_2021}                & BLEU, ROUGE-L, METEOR, BERTScore                                 & Wikipedia                                                                                                       & BERT                                     \\
-    \hline
-    \cite{reid_vcdm_2020}                & BLEU, BERTScore (Precision, Recall, F1), Human                   & Oxford, Urban, Wikipedia, Cambridge, Robert (French)                                                            & BERT, LSTM                               \\
-    \hline
-\end{longtable}
-
-\subsection{Language Models and definition generation}
+\subsection{Language models and definition generation}
 A definition model is a language model that is trained on a set of definitions
 \cite{noraset_definition_2016}. The goal of a definition model is to learn to
-generate a definition ($\textbf{d} = [d_1, ..., d_T]$) for a given term $w$. The
-probability of generating the $t$-th word in a definition depends on both the
-previous words in the definition and the word to be defined (Eq.
-\ref{eq:definition_model}).
+generate a definition for a given term. The probability of generating the $t$-th
+word in a definition depends on both the previous words in the definition and
+the word to be defined (Eq. \ref{eq:definition_model}).
 
 \begin{equation}
     \label{eq:definition_model}
     p(\textbf{d} | w) = \prod_{t=1}^{T} p(d_t | d_1,...,d_{t-1}, w)
 \end{equation}
 
-Researchers apply sequence-to-sequence algorithms and represented definitions
-vectors by formulating language modeling to capture sequence features and
-context. Among these algorithms, recurrent neural network (RNN),
-Long-short-term-memory network (LSTM), etc., are important. Not all words are
-equally important in a definition as they have different contributions in the
-definition generations. Transformer-based techniques help focus on the
-contribution of particular words in the definition. Therefore, few researchers
-also focus on transformer networks such as Bidirectional Encoder Representations
-from Transformers (BERT) \cite{devlin2018bert}, denoising decoder (BART)
-\cite{lewis2019bart}, etc.
+\noindent
+where \textbf{d} is the generated definition as a vector of words ($\textbf{d} =
+    [d_1, ..., d_T]$) and $w$ is the word or phrase to be defined.
 
-Noraset et al. condition an RNN to generate a definition from an input seed word.
-They modify the model by updating the output of the recurrent unit with an
-update function inspired by GRU update gate \cite{noraset_definition_2016}. They
-apply pretrained word embeddings generated from Word2Vec. In later work, it was
+Noraset et al. condition a \textit{recurrent neural network} (RNN) to generate a
+definition from an input seed word \cite{noraset_definition_2016}. They modify
+the model by updating the output of the recurrent unit with an update function
+inspired by gated recurrent unit (GRU) update gate
+\cite{noraset_definition_2016}. They apply pretrained word embeddings generated
+from \textit{Word2Vec} \cite{mikolov_efficient_2013}. In later work, it was
 shown that the definition model does not generate definitions for words with
-ambiguous word sense, especially polysemantic words. The following context-aware
-definition model was proposed by Gadetsky et al. in order to tackle this
-challenge \cite{gadetsky_conditional_2018}. They extend Equation
-\ref{eq:definition_model} by adding a context term ($\textbf{c} = [c_1, ...,
-    c_T]$) which is a context or example sentence to be used in the generation of
-the definition.
+ambiguous word sense, especially polysemantic words
+\cite{gadetsky_conditional_2018}. The following context-aware definition model
+was proposed by Gadetsky et al. in order to tackle this challenge
+\cite{gadetsky_conditional_2018}. In order to generate a definition, authors use
+an attention-based skip-gram model to extract dimensions from the embedding
+which contain the most relevant information \cite{gadetsky_conditional_2018}.
+They extend Equation \ref{eq:definition_model} by adding a context term which is
+a contextual phrase or example sentence to be used in the generation of the
+definition.
 
 \begin{equation}
     \label{eq:context_aware_definition_model}
     p(\textbf{d} | w, \textbf{c}) = \prod_{t=1}^{T} p(d_t | d_1,...,d_{t-1}, w, \textbf{c})
 \end{equation}
 
-In order to generate a definition, authors use an attention-based SkipGram model
-to extract dimensions from the embedding which contain the most relevant
-information.
+\noindent
+where \textbf{c} is the context phrase ($\textbf{c} = [c_1, ..., c_T]$).
+
+Researchers apply \textit{sequence-to-sequence} algorithms and represented
+definitions vectors by formulating language modeling to capture sequence
+features and context \cite{bevilacqua_generationary_2020, huang_cdm_2021,
+    kabiri_evaluating_2020, washio_bridging_2019, reid_vcdm_2020}. Among these
+algorithms, RNN and \textit{long-short-term-memory network} (LSTM) are important
+as they can capture semantic information across words in a sentence as
+sequential data. Not all words are equally important in a definition as they
+have different contributions in the definition generations. Transformer-based
+techniques help focus on the contribution of particular words in the definition.
+Therefore, few researchers also focus on transformer networks such as
+\textit{Bidirectional Encoder Representations from Transformers} (BERT) and
+denoising decoder (BART) \cite{devlin2018bert, lewis2019bart}.
 
 The definition usually contains summarized information about the given target
 word. Huang et al. focus on generating definition by using extracted self- and
-correlative definition information of a given term/word from the Web
-\cite{huang_cdm_2021}. The author extracted sentences containing the target term
-and then ranked sentences using deployed BERT-based model and extracted
-self-definitional information (SDI) from Wikipedia. Then, they design
-conditional sequence to sequence model, BART, and fine-tune parameter with
-extracted information and general definition for a given term. Definition
-modeling works similarly to Language models to generate definition sentences and
-corresponding probabilities. Gadetsky et al. proposed a conditional recurrent
-neural network (RNN) based language model for developing the definition of a
-given the word \cite{gadetsky_conditional_2018}. First, they created AdaGram
-based RNN model and conditioned it on Adaptive Skip-gram vector representation.
-Their second model focused on attention-based Skip-gram to generate a definition
-for a corresponding context. Kabiri et al. proposed context agnostic multi-sense
-definition generation model \cite{kabiri_evaluating_2020}. The proposed RNN
-based model generates multiple definitions based on a given target word type
-(polysemy word) and incorporates the char-CNN model to capture affixes
-knowledge. They associate sense vectors with definitions and create a
-definition-to-sense and sense-to-definition model. These definition models
-represented definition by taking the average of the word embeddings of all the
-words.
+correlative definition information of a given term from the web
+\cite{huang_cdm_2021}. The authors extracted sentences containing the target
+term and then ranked sentences using deployed BERT-based model and extracted
+self-definitional information (SDI) from Wikipedia \cite{huang_cdm_2021}. Then,
+they design conditional sequence-to-sequence model, BART, and fine-tune
+parameter with extracted information and general definition for a given term.
 
-Li et al. proposed explicit semantic decomposition (ESD) to decompose the
-meaning of the word into semantic components and model them with the discrete
-latent variable for definition generation \cite{li_explicit_2020}. This model
-comprises an encoder, decoder, and semantic component predictor. The encoder
-consists of two components - word encoder and Bidirectional-LSTM context
-encoder. Word encoder creates low-dimensional vectors of the word, whereas the
-BiLSTM context encoder incorporates context information. Semantic component
-predictor model approximate posterior using Bi-LSTM model. Finally, LSTM based
-definition decoder generates definition from the encoded data. Bevilacqua et al.
-propose a span-based encoding model (BART) that is used to map occurrences of
-target words or phrases and generate gloss \cite{bevilacqua_generationary_2020}.
-Finally, Gloss Probability Scoring is applied to select the highest probable
-gloss and thus create the word's definition. Zhang et al. formulated multitask
-GRU-based sequence to sequence modeling to generate definition and example
-sentences \cite{zhang_improving_2020}. In this process, authors deploy Elmo
-model to get context sensitive embedding vector of a target word. Ishiwatari et
-al. solve the problem of unknown phrase definition by incorporating local and
-global context information while defining a word
+Definition modeling works similarly to language models to generate definition
+sentences and corresponding probabilities. Gadetsky et al. proposed a
+\textit{conditional RNN} based language model for developing the definition of a
+given the word \cite{gadetsky_conditional_2018}. First, they created AdaGram
+based RNN model and conditioned it on adaptive skip-gram vector representation.
+Their second model focused on attention-based skip-gram to generate a definition
+for a corresponding context.
+
+Li et al. proposed \textit{explicit semantic decomposition} (ESD) to decompose
+the meaning of the word into semantic components and model them with the
+discrete latent variable for definition generation \cite{li_explicit_2020}. This
+model comprises an \textit{encoder}, \textit{decoder}, and \textit{semantic
+    component predictor}. The encoder consists of two components: word encoder and
+\textit{bidirectional LSTM} (Bi-LSTM) context encoder. Word encoder creates
+low-dimensional vectors of the word, whereas the Bi-LSTM context encoder
+incorporates context information. Semantic component predictor model approximate
+posterior using Bi-LSTM model. Finally, LSTM based definition decoder generates
+definition from the encoded data.
+
+Bevilacqua et al. propose a span-based encoding model (BART) that is used to map
+occurrences of target words or phrases and generate gloss
+\cite{bevilacqua_generationary_2020}. Finally, gloss probability scoring is
+applied to select the highest probable gloss and thus create the word's
+definition.
+
+% reference is use in word embeddings section Zhang et al. formulated multitask
+% GRU-based sequence-to-sequence modeling to generate definition and example
+% sentences \cite{zhang_improving_2020}. In this process, authors deploy ELMo
+% model to get context sensitive embedding vector of a target word.
+
+Ishiwatari et al. solve the problem of unknown phrase definition by
+incorporating local and global context information while defining a word
 \cite{ishiwatari_learning_2019}. Local context refers to the sequence of
 neighboring words of the target word. In contrast, the global context refers to
 the entire document or even search the web text to find other occurrences of the
-expression to understand the meaning. Authors proposed similar to LSTM based
+expression to understand the meaning. Authors proposed LSTM based
 encoder-decoder model where gated unit deployed reduces the ambiguity of local
-and global context.
+and global context \cite{ishiwatari_learning_2019}.
 
 Mickus et al. reformalize the problem of definition modeling to a
 sequence-to-sequence task by defining a highlighted word in an input context
 sentence \cite{mickus_mark_2019}. Mickus et al. argue that due to the
-distribution hypothesis (words with similar distribution have similar meaning),
-the problem of definition modeling should be reformulated as a
+\textit{distribution hypothesis} (words with similar distribution have similar
+meaning), the problem of definition modeling should be reformulated as a
 sequence-to-sequence task, where the input sequence is a sentence with the word
 to be defined highlighted \cite{mickus_mark_2019}. The input sequence provides
-the context necessary to generate the output definition. Zhu et al. study the
-multi-sense definition modeling task using the Gumble-softmax approach
-\cite{zhu_multi_2019}. This approach decomposes word senses from the pre-trained
-word embeddings and applies LSTM-sequence to sequence modeling to generate
-definition sentences. Reid et al. introduced the variational generative model to
-produce a definition that directly combines lexical and distributional semantics
-using the continuous latent variable \cite{reid_vcdm_2020}. Initially, the BERT
-model is fine-tuned with phrase-context pairs, and in the context, sentence
-lexeme form is used to reduce the differences in the word or phrase. Once the
-BERT model encodes the definition, the proposed approach applies a neural
-definition inference module to compute approximate posterior from the
-variational distribution of the definition. During definition generation, that
-is, sequence of word generation task, this model deploys LSTM enabled
-variational contextual definition modeler to generate a sequence of words as the
-definition. Chang et al. explore contextualized embedding for definition
-modeling. To get contextualized word embedding author used the pretrained ELMo
-and BERT model \cite{chang_what_2019}. the authors reformulate the problem of
-definition modeling from text generation to text classification. Instead of
-mapping the classifier with discrete labels, authors encode all ground truth
-definitions in the embedding space via learning a mapping function. Then this
-approach applies k-nearest neighbor to predict the appropriate definition for a
+the context necessary to generate the output definition.
+
+Zhu et al. study the multi-sense definition modeling task using the
+Gumble-softmax approach \cite{zhu_multi_2019}. This approach decomposes word
+senses from the pre-trained word embeddings and applies LSTM
+sequence-to-sequence modeling to generate definition sentences.
+
+Reid et al. introduced a variational generative model to produce a definition
+that directly combines lexical and distributional semantics using the continuous
+latent variable \cite{reid_vcdm_2020}. Initially, the BERT model is fine-tuned
+with phrase-context pairs, and in the context, sentence lexeme form is used to
+reduce the differences in the word or phrase. Once the BERT model encodes the
+definition, the proposed approach applies a neural definition inference module
+to compute approximate posterior from the variational distribution of the
+definition. During definition generation, that is, sequence of word generation
+task, this model deploys LSTM enabled variational contextual definition modeler
+to generate a sequence of words as the definition.
+
+Chang et al. explore contextualized embedding for definition modeling - to get
+contextualized word embedding the authors used the pretrained ELMo and BERT
+model \cite{chang_what_2019}. The authors reformulate the problem of definition
+modeling from text generation to text classification. Instead of mapping the
+classifier with discrete labels, the authors encode all ground truth definitions
+in the embedding space via learning a mapping function \cite{chang_what_2019}.
+Then, they apply k-nearest neighbor to predict the appropriate definition for a
 given target word. Their results show state-of-the-art performance on the task
 of definition modeling.
 
 % non-english
-\textbf{Non-English Languages:} Definition generation was also explored in the
-non-English language. Since definition depends on the lexical property, language
-syntax, construction of the phrases, and so on, different languages influence
-the proposed methodology to capture the definition of a specific word. In
-parataxis languages (i.e., Chinese), words meaning composed of formation process
-- formation component (morphemes) combined by formation rule (morphemes are
-combined to form words). Zheng et al. utilizes this word meaning formation
-process in consideration to build a definition generation model where words
-decompose into formation features and then use gating techniques to generate
-definition \cite{zheng_decompose_2021}. In this work, the authors develop
-morpheme features using the bi-LSTM model and concatenate character-level
-embedding and pre-trained word embedding together. Finally, gated
-attention-based morpheme features with attention-based context vector to form a
-feature vector. The definition generator employs a gated LSTM model that uses
-the feature vector and generates definition. Ni et al. automatically generates
-explanations for non-standard English expression using sequence to sequence
-models \cite{ni_learning_2017}. The authors use two encoder approaches -
-word-level LSTM-encoder encodes context information while character-level
-encoder encodes target non-standard terms. Kong et al. fine-tune mBERT and XLM
-cross-lingual model and provide target word and examples sentence as context to
-produce definition as output \cite{kong_toward_2020}. This model can generate
-definitions in English from various languages (e.g., Chinese to English).
+\textbf{Non-English languages:}
+Most definition modeling methods focus on generating definitions in English for
+English words. Definition generation was also explored in the non-English
+language. Since the definition depends on the lexical properties, language
+syntax, and phrase construction, different languages influence the proposed
+methodology to capture the definition of a specific word. In parataxis languages
+(e.g., Chinese), words meaning composed of formation process - formation
+component (morphemes) combined by formation rule (morphemes are combined to form
+words).
+
+Zheng et al. utilizes this word meaning formation process in consideration to
+build a definition generation model where words decompose into formation
+features and then use gating techniques to generate definition
+\cite{zheng_decompose_2021}. In this work, the authors develop morpheme features
+using the Bi-LSTM model and concatenate character-level embedding and
+pre-trained word embedding together. Finally, gated attention-based morpheme
+features with attention-based context vector to form a feature vector. The
+definition generator employs a gated LSTM model that uses the feature vector and
+generates definition.
+
+Ni et al. automatically generates explanations for non-standard English
+expression using sequence to sequence models \cite{ni_learning_2017}. The
+authors use two encoder approaches - word-level LSTM-encoder encodes context
+information while character-level encoder encodes target non-standard terms
+\cite{ni_learning_2017}.
+
+Kong et al. fine-tune mBERT and XLM cross-lingual model and provide target word
+and examples sentence as context to produce definition as output
+\cite{kong_toward_2020}. This model can generate definitions in English from
+various languages (e.g., Chinese to English).
+
+Kabiri et al. proposed context-agnostic multi-sense definition generation model
+\cite{kabiri_evaluating_2020}. The proposed RNN based model generates multiple
+definitions based on a given target word type (polysemous word) and incorporates
+the char-CNN model to capture affixes knowledge. They associate sense vectors
+with definitions and create a definition-to-sense and sense-to-definition model.
+These definition models represented definition by taking the average of the word
+embeddings of all the words. Their multi-sense model demonstrates the ability to
+generate multi-sense embeddings across nine languages from various language
+families.
 
 \subsection{Word Embedding}
 In recent years, definition modeling has gained popularity, and researchers
-proposed various methods to map between definition and the target word. One of
-the significant issues in mapping words with the dictionary is contextual
-ambiguity and embedding-based word representation. In NLP, word embedding
-represents the vector representation of words that encodes the word's meaning
-such that similar words have similar vector space. There are various word
-embedding techniques used to resolve ambiguity between words. In the definition
-modeling problem, word to vector representation is a key factor in modeling
-definition words/terms for a given term.
+proposed various methods to map the relationship between definition and the
+target word. One of the significant issues in mapping words with the dictionary
+is contextual ambiguity and embedding-based word representation. In NLP, word
+embeddings represent the vector representation of words that encodes the word's
+meaning such that similar words have similar vector space. There exist various
+word embedding techniques used to resolve ambiguity between words. In the
+definition modeling problem, word to vector representation is a key factor in
+modeling definitions for a given term.
 
 Bosc et al. exploited dictionary recursivity into consideration and proposed an
 autoencoder-based word embedding algorithm, and generated a single embedding per
-word—the proposed auto-encoder model comprises of LSTM encoder and decoder
-\cite{bosc_auto_2018}. The authors introduced three embeddings - i) definition
-embeddings produced by the proposed definition encoder, ii) input embeddings for
-the encoder, and iii) output embeddings. While modeling these embedding models,
-the author incorporates consistency penalty as soft weight in their cost
-function to enforce input embedding and definition embedding closer. Washio et
-al., the authors consider lexical-semantic relations between the defined word
-and defining words using unsupervised methods to propose definition modeling
-\cite{washio_bridging_2019}. To learn embedding author proposed LSTM based
-encoder and decoder with additional cost function to learn word-pair embeddings
-in the decoder and capture lexical-semantic relations. Dictionary embeddings
-often follow a genus + differentia structure for a dictionary definition.
+word—the proposed auto-encoder model comprises of an LSTM encoder and decoder
+\cite{bosc_auto_2018}. The authors introduced three embeddings: definition
+embeddings produced by the proposed definition encoder, input embeddings for the
+encoder, and output embeddings \cite{bosc_auto_2018}. While modeling these
+embedding models, the authors incorporates consistency penalty as soft weight in
+their cost function to enforce input embedding and definition embedding closer
+\cite{bosc_auto_2018}.
+
+Washio et al., the authors consider lexical-semantic relations between the
+defined word and defining words using unsupervised methods to propose definition
+modeling \cite{washio_bridging_2019}. To learn word embeddings, the authors
+proposed LSTM-based encoder and decoder with an additional cost function to
+learn word-pair embeddings in the decoder and capture lexical-semantic
+relations. Dictionary embeddings often follow a genus and differentia structure
+for a dictionary definition.
+
+
 Noraset et al. capture hypernyms embedding following proper genus database
 WebIsA containing hypernym relations \cite{noraset_definition_2016}. In
 addition, the author incorporates char-CNN to capture affixes to model gated-RNN
-based definition modeling.
+based definition modeling \cite{noraset_definition_2016}.
 
 Word-embeddings are learned from large corpora. Therefore, it may consists of
-biases such as gender, race, religion, etc. On the other hand, word dictionaries
+biases such as gender, race, and religion. On the other hand, word dictionaries
 contain unbiased, concise definitions. To overcome these biases by utilizing
-pre-trained word-embedding, authors learned embedding from existing input word
-embeddings using encoder-decoder architecture by defining decoder cost function
-that considers dictionary agreement as a constraint and decoded the debiased
-embedding \cite{kaneko_dictionary_2021}. Zhang et al. propose a novel framework
-by formulating definition modeling and word-embedding as multitask learning
-problems \cite{zhang_improving_2020}. The authors presented two types of
-multitasking models to combine usage and definition modeling. First, the authors
-used the GRU-based context encoder model as a semantic generative network to
-generate word embedding. This approach encodes context sequences into continuous
-vectors and generates a fixed-size sentence embedding. After that,
-self-attention is applied to consider the target word sense. This model learns
-context-sensitive word embedding by fine-tuning Elmo models. Finally, the author
-formulated multitask sequence to sequence modeling for usage modeling to
-generate definition and example sentences.
+pre-trained word-embedding, Kaneko et al. apply learned embedding from existing
+input word embeddings using encoder-decoder architecture by defining a decoder
+cost function that considers dictionary agreement as a constraint and decodes
+the debiased embedding \cite{kaneko_dictionary_2021}.
+
+Zhang et al. propose a novel framework by formulating definition modeling and
+word-embedding as multitask learning problems \cite{zhang_improving_2020}. The
+authors presented two types of multitasking models to combine usage and
+definition modeling. First, the authors used the GRU-based context encoder model
+as a semantic generative network to generate word embedding. This approach
+encodes context sequences into continuous vectors and generates a fixed-size
+sentence embedding. After that, self-attention is applied to consider the target
+word sense. This model learns context-sensitive word embedding by fine-tuning
+ELMo models. Finally, the author formulated multitask sequence to sequence
+modeling for usage modeling to generate definition and example sentences.
+
+\subsection{Evaluation criteria}
+
+\begin{table}
+    \centering
+    \caption{Evaluation criteria used in definition modeling}
+    \begin{tabular}{|ll|}
+        \hline
+        Criteria          & Methods                              \\
+        \hline
+        BLEU              & \cite{bevilacqua_generationary_2020,
+            gadetsky_conditional_2018,
+            huang_cdm_2021,
+            ishiwatari_learning_2019,
+            kabiri_evaluating_2020,
+            li_explicit_2020,
+            noraset_definition_2016,
+            reid_vcdm_2020,
+            washio_bridging_2019}                                \\
+        Perplexity        & \cite{bevilacqua_generationary_2020,
+            gadetsky_conditional_2018,
+            mickus_mark_2019,
+            noraset_definition_2016,
+            washio_bridging_2019}                                \\
+        ROUGE-L           & \cite{bevilacqua_generationary_2020,
+            chang_what_2019,
+            huang_cdm_2021}                                      \\
+        METEOR            & \cite{bevilacqua_generationary_2020,
+            li_explicit_2020,
+            huang_cdm_2021}                                      \\
+        BERTScore         & \cite{bevilacqua_generationary_2020,
+            huang_cdm_2021,
+            reid_vcdm_2020}                                      \\
+        Human             & \cite{li_explicit_2020,
+        ishiwatari_learning_2019,
+            reid_vcdm_2020}                                      \\
+        Precision         & \cite{chang_what_2019}               \\
+        Cosine similarity & \cite{chang_what_2019}               \\
+        \hline
+    \end{tabular}
+    \label{tab:eval}
+\end{table}
+
+A variety of evaluation criteria are used to evaluate generated
+definitions.Table \ref{tab:eval} lists the evaluation criteria used in the
+definition modeling task. We provide brief descriptions of the evaluation
+criteria used.
+
+\textbf{BLEU}: \textit{BiLingual Evaluation Understudy} (BLEU) is a score
+compares two translations: the \textit{reference translation} and the
+\textit{candidate translation} \cite{papineni_2002_bleu}. The reference
+translation is the correct translation of the source sentence, typically
+provided by a human source. The candidate translation is the machine's
+translation. In definition modeling, the candidate translation is the generated
+definition, and the reference translation is the source dictionary definition.
+
+\textbf{Perplexity}: \textit{Perplexity} is related to entropy, which is a
+measurement of the uncertainty of a probability distribution and is normalized
+by sentence length. The perplexity is a measure of the difficulty of generating
+a sentence. The lower the perplexity, the more natural the sentence is for the
+model.
+
+\textbf{ROUGE-L}: \textit{Recall-Oriented Understudy for Gisting Evaluation}
+(ROUGE) measures the matching n-grams between the reference and candidate
+translations \cite{lin_2004_rouge}. ROUGE-L is a modified version of ROUGE that
+uses the \textit{longest common subsequence} (LCS) to measure the similarity
+between the two translations.
+
+\textbf{METEOR}: \textit{Metric for Evaluation of Translation with Explicit
+    Ordering} (METEOR) is a metric that is based on unigram matching between the
+reference and candidate translations \cite{banerjee_2005_meteor}. It
+computes a score based on the harmonic mean of precision and recall.
+
+\textbf{BERTScore}: \textit{Bidirectional Encoder Representations from
+    Transformers} (BERTScore) is a metric that computes a similarity score of
+the candidate and reference translations based on the contextual embeddings
+\cite{zhang_bertscore_2020}.
+
+\textbf{Precision}: \textit{Precision} is a measure of the proportion of
+correctly identified words in a sentence.
+
+\textbf{Cosine similarity}: \textit{Cosine similarity} is a measure of the
+similarity between two vectors. It is simply calculated as the dot product of
+the two vectors divided by the product of their magnitudes.

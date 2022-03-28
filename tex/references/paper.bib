@@ -1,16 +1,6 @@
 % recurrent neural network language model
 
 
-@misc{wiktionary,
-    _author    = "Wiktionary",
-    _title     = "Wiktionary",
-    ?_howpublished = "wiktionary.org",
-    ?_year     = "XXXX",
-    ?_month    = "",
-    ?_note     = "",
-    url = "wiktionary.org"
-}
-
 @inproceedings{nastase-strapparava-2013-bridging,
     title = "Bridging Languages through Etymology: The case of cross language text categorization",
     author = "Nastase, Vivi  and
@@ -53,6 +43,21 @@
   year      = {2010},
   pages     = {1045--1048}
 }
+
+
+@article{mikolov_efficient_2013,
+	title = {Efficient {Estimation} of {Word} {Representations} in {Vector} {Space}},
+	url = {http://arxiv.org/abs/1301.3781},
+	abstract = {We propose two novel model architectures for computing continuous vector representations of words from very large data sets. The quality of these representations is measured in a word similarity task, and the results are compared to the previously best performing techniques based on different types of neural networks. We observe large improvements in accuracy at much lower computational cost, i.e. it takes less than a day to learn high quality word vectors from a 1.6 billion words data set. Furthermore, we show that these vectors provide state-of-the-art performance on our test set for measuring syntactic and semantic word similarities.},
+	urldate = {2022-03-25},
+	journal = {arXiv:1301.3781 [cs]},
+	author = {Mikolov, Tomas and Chen, Kai and Corrado, Greg and Dean, Jeffrey},
+	month = sep,
+	year = {2013},
+	note = {arXiv: 1301.3781},
+	keywords = {Computer Science - Computation and Language},
+}
+
 
 % datasets
 @inproceedings{miller_semantic_1993,
@@ -281,18 +286,98 @@
   pages      = {3779--3785}
 }
 
-@article{lewis2019bart,
-  title={Bart: Denoising sequence-to-sequence pre-training for natural language generation, translation, and comprehension},
-  author={Lewis, Mike and Liu, Yinhan and Goyal, Naman and Ghazvininejad, Marjan and Mohamed, Abdelrahman and Levy, Omer and Stoyanov, Ves and Zettlemoyer, Luke},
-  journal={arXiv preprint arXiv:1910.13461},
-  year={2019}
+@inproceedings{lewis2019bart,
+    title = "{BART}: Denoising Sequence-to-Sequence Pre-training for Natural Language Generation, Translation, and Comprehension",
+    author = "Lewis, Mike  and
+      Liu, Yinhan  and
+      Goyal, Naman  and
+      Ghazvininejad, Marjan  and
+      Mohamed, Abdelrahman  and
+      Levy, Omer  and
+      Stoyanov, Veselin  and
+      Zettlemoyer, Luke",
+    booktitle = "Proceedings of the 58th Annual Meeting of the Association for Computational Linguistics",
+    month = jul,
+    year = "2020",
+    address = "Online",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2020.acl-main.703",
+    doi = "10.18653/v1/2020.acl-main.703",
+    pages = "7871--7880",
+    abstract = "We present BART, a denoising autoencoder for pretraining sequence-to-sequence models. BART is trained by (1) corrupting text with an arbitrary noising function, and (2) learning a model to reconstruct the original text. It uses a standard Tranformer-based neural machine translation architecture which, despite its simplicity, can be seen as generalizing BERT (due to the bidirectional encoder), GPT (with the left-to-right decoder), and other recent pretraining schemes. We evaluate a number of noising approaches, finding the best performance by both randomly shuffling the order of sentences and using a novel in-filling scheme, where spans of text are replaced with a single mask token. BART is particularly effective when fine tuned for text generation but also works well for comprehension tasks. It matches the performance of RoBERTa on GLUE and SQuAD, and achieves new state-of-the-art results on a range of abstractive dialogue, question answering, and summarization tasks, with gains of up to 3.5 ROUGE. BART also provides a 1.1 BLEU increase over a back-translation system for machine translation, with only target language pretraining. We also replicate other pretraining schemes within the BART framework, to understand their effect on end-task performance.",
 }
 
-@article{devlin2018bert,
-  title={Bert: Pre-training of deep bidirectional transformers for language understanding},
-  author={Devlin, Jacob and Chang, Ming-Wei and Lee, Kenton and Toutanova, Kristina},
-  journal={arXiv preprint arXiv:1810.04805},
-  year={2018}
+
+@inproceedings{devlin2018bert,
+	address = {Minneapolis, Minnesota},
+	title = {{BERT}: {Pre}-training of {Deep} {Bidirectional} {Transformers} for {Language} {Understanding}},
+	shorttitle = {{BERT}},
+	url = {https://aclanthology.org/N19-1423},
+	doi = {10.18653/v1/N19-1423},
+	abstract = {We introduce a new language representation model called BERT, which stands for Bidirectional Encoder Representations from Transformers. Unlike recent language representation models (Peters et al., 2018a; Radford et al., 2018), BERT is designed to pre-train deep bidirectional representations from unlabeled text by jointly conditioning on both left and right context in all layers. As a result, the pre-trained BERT model can be fine-tuned with just one additional output layer to create state-of-the-art models for a wide range of tasks, such as question answering and language inference, without substantial task-specific architecture modifications. BERT is conceptually simple and empirically powerful. It obtains new state-of-the-art results on eleven natural language processing tasks, including pushing the GLUE score to 80.5 (7.7 point absolute improvement), MultiNLI accuracy to 86.7\% (4.6\% absolute improvement), SQuAD v1.1 question answering Test F1 to 93.2 (1.5 point absolute improvement) and SQuAD v2.0 Test F1 to 83.1 (5.1 point absolute improvement).},
+	urldate = {2022-03-25},
+	booktitle = {Proceedings of the 2019 {Conference} of the {North} {American} {Chapter} of the {Association} for {Computational} {Linguistics}: {Human} {Language} {Technologies}, {Volume} 1 ({Long} and {Short} {Papers})},
+	publisher = {Association for Computational Linguistics},
+	author = {Devlin, Jacob and Chang, Ming-Wei and Lee, Kenton and Toutanova, Kristina},
+	month = jun,
+	year = {2019},
+	pages = {4171--4186},
 }
 
 
+
+@inproceedings{lin_2004_rouge,
+    title = "{ROUGE}: A Package for Automatic Evaluation of Summaries",
+    author = "Lin, Chin-Yew",
+    booktitle = "Text Summarization Branches Out",
+    month = jul,
+    year = "2004",
+    address = "Barcelona, Spain",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/W04-1013",
+    pages = "74--81",
+}
+
+@inproceedings{papineni_2002_bleu,
+    title = "{B}leu: a Method for Automatic Evaluation of Machine Translation",
+    author = "Papineni, Kishore  and
+      Roukos, Salim  and
+      Ward, Todd  and
+      Zhu, Wei-Jing",
+    booktitle = "Proceedings of the 40th Annual Meeting of the Association for Computational Linguistics",
+    month = jul,
+    year = "2002",
+    address = "Philadelphia, Pennsylvania, USA",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/P02-1040",
+    doi = "10.3115/1073083.1073135",
+    pages = "311--318",
+}
+
+@inproceedings{banerjee_2005_meteor,
+    title = "{METEOR}: An Automatic Metric for {MT} Evaluation with Improved Correlation with Human Judgments",
+    author = "Banerjee, Satanjeev  and
+      Lavie, Alon",
+    booktitle = "Proceedings of the {ACL} Workshop on Intrinsic and Extrinsic Evaluation Measures for Machine Translation and/or Summarization",
+    month = jun,
+    year = "2005",
+    address = "Ann Arbor, Michigan",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/W05-0909",
+    pages = "65--72",
+}
+
+
+@article{zhang_bertscore_2020,
+	title = {{BERTScore}: {Evaluating} {Text} {Generation} with {BERT}},
+	shorttitle = {{BERTScore}},
+	url = {http://arxiv.org/abs/1904.09675},
+	abstract = {We propose BERTScore, an automatic evaluation metric for text generation. Analogously to common metrics, BERTScore computes a similarity score for each token in the candidate sentence with each token in the reference sentence. However, instead of exact matches, we compute token similarity using contextual embeddings. We evaluate using the outputs of 363 machine translation and image captioning systems. BERTScore correlates better with human judgments and provides stronger model selection performance than existing metrics. Finally, we use an adversarial paraphrase detection task to show that BERTScore is more robust to challenging examples when compared to existing metrics.},
+	urldate = {2022-03-25},
+	journal = {arXiv:1904.09675 [cs]},
+	author = {Zhang, Tianyi and Kishore, Varsha and Wu, Felix and Weinberger, Kilian Q. and Artzi, Yoav},
+	month = feb,
+	year = {2020},
+	note = {arXiv: 1904.09675},
+	keywords = {Computer Science - Computation and Language},
+}

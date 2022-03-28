@@ -6,46 +6,83 @@ qualities of definitions that allow one to directly understand the meaning of a
 word or phrase also allow the exploration of the semantic relationships between
 words. These qualities have allowed the creation of neural language models that
 can generate useful embeddings based on the semantic information contained in
-the definitions \cite{hill_learning_2016, bosc_auto_2018}.
+the definitions \cite{bosc_auto_2018, hill_learning_2016}.
 
-Word embeddings have been employed in order to obtain powerful
-performance in a variety of NLP tasks. They are useful for capturing lexical
-syntax and semantics based on word similarity. \cite{mikolov_distributed_2013}
+Word embeddings have been employed in order to obtain powerful performance in a
+variety of \textit{natural language processing} (NLP) tasks. They are useful for
+capturing lexical syntax and semantics based on word similarity. Mikolov et al.
 show that basic mathematical operations applied on word embeddings can show
 meaningful language understanding \cite{mikolov_distributed_2013}. However, as
 continuous representations, the interpretability of word embeddings is limited.
 
-Thus, the problem of definition modeling was proposed by
-\cite{noraset_definition_2016} to evaluate word embeddings
-\cite{noraset_definition_2016}. The task of definition modeling is to generate a
-definition for a given term. The goal of a model trained on this task is to
-train on word embedding and definition pairs in order to learn to generate a
-definition for a given word or phrase.
-
-\begin{figure}
+\begin{figure}[h]
     \centering
-    \includegraphics[width=0.9\textwidth]{assets/defmodel.png}
-    \caption{An example of the definition modeling problem for the definiendum
-        \textit{free} and an output definition.}
+    \includegraphics[width=1\textwidth]{assets/figures/monoseme.png}
+    \caption{Monoseme example word and definition. A definition model could generate the definition \textit{producing a great deal of profit} for the input word \textit{lucrative}.}
+    \label{fig:monoseme}
+\end{figure}
+
+Thus the problem of \textit{definition modeling} was proposed by Noraset et al.
+to evaluate word embeddings \cite{noraset_definition_2016}. The task of
+definition modeling is to generate a definition for a given term. The goal of a
+model trained on this task is to train on word embedding and definition pairs in
+order to learn to generate a definition for a given word or phrase. An example of a \textit{monoseme} (word with a single definition) is given in Figure \ref{fig:monoseme}. Given the input word \textit{lucrative},
+a model trained on the task of definition modeling would produce the output
+definition \textit{producing a great deal of profit}.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=1\textwidth]{assets/figures/polyseme.png}
+    \caption{Polyseme example word and definition. A definition model could generate any of the target definitions.}
+    \label{fig:polyseme}
 \end{figure}
 
 In addition to being a relatively new language modeling task, definition
 modeling has attracted attention from the literature in a number of areas.
 First, it was shown that the definition model has poor performance when
-generating definitions for polysemes: words with multiple definitions. This
-problem was not addressed in the original work as only one definition mapped to
-each word. Once researchers attempted to address this problem, they found that
-the definition model was unable to learn the semantics of the polyseme with only
-the word as an input. Therefore, it was necessary to augment the definition
-model with additional information, namely, an example sentence which sets the
-word to be defined (\textit{definiendum}) inside to provide context. This method
-has been shown to alleviate the problem of generating definitions for polysemes
-and also improve the performance of the definition model on several measures
-\cite{gadetsky_conditional_2018}, \cite{mickus_mark_2019},
-\cite{bevilacqua_generationary_2020}.
+generating definitions for polysemes: words with multiple definitions
+\cite{gadetsky_conditional_2018}. An example polysemous word is shown in Figure
+\ref{fig:polyseme}. Given the input \textit{word}, the goal of a definition
+model would be to generate one of the target definitions, most ideally the
+closest definition to the word sense of the input. However, it is difficult to
+know the word sense given only the input word.
 
-Our paper is organized into three sections. Section 2 reviews definition modeling
-methods as well as word embeddings used for this task. Section 3 shares benchmark
-datasets and statistics that can be used when formulating and evaluating a definition
-modeling method. Section 4 explores challenges encountered in this field of research
-and gives suggestion for future work.
+The problem of polysemous words was not addressed in the original work as only
+one definition mapped to each word. Once researchers attempted to address this
+problem, they found that the definition model was unable to learn the semantics
+of the polyseme with only the word as an input. Therefore, it was necessary to
+augment the definition model with additional information, namely, an example
+sentence which sets the word to be defined (\textit{definiendum}) inside to
+provide context. This method has been shown to alleviate the problem of
+generating definitions for polysemes and also improve the performance of the
+definition model on several measures \cite{bevilacqua_generationary_2020,
+gadetsky_conditional_2018, mickus_mark_2019}.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=1\textwidth]{assets/figures/context.png}
+    \caption{Context dependent definition task. The word to be defined is marked in bold. In this case, although \textit{word} is a polyseme, there is only one correct target definition due to the contextual information provided.}
+    \label{fig:context_poly}
+\end{figure}
+
+Definition modeling, especially as a sequence-to-sequence task, is similar to
+other NLP tasks, such as \textit{word-sense disambiguation},
+\textit{word-in-context}, and \textit{definition extraction}
+\cite{bevilacqua_generationary_2020, huang_cdm_2021}. When using context to
+generate a definition from an input word, the word sense of the input must be
+extracted in order to select the correct definition. The goal of word-sense
+disambiguation is similar, in that the goal of word-sense disambiguation is to
+identify the sense of a word used in a sentence. Similarly, definition
+extraction seeks to extract definitions of terms from an existing corpora
+\cite{huang_cdm_2021}. Figure \ref{fig:context_poly} shows an example of
+definition modeling in a context dependent situation. In the example, a
+reference context is given. Inside the reference context, a target word
+\textit{word} is marked as the word to be defined. The goal of a definition
+model given this context and marked word would be to generate the target
+definition \textit{a command, password, or signal}.
+
+Our paper is organized into three sections. Section 2 reviews definition
+modeling methods as well as word embeddings. Section 3 shares benchmark datasets
+and statistics that can be used when formulating and evaluating a definition
+modeling method. Section 4 explores challenges encountered in this field of
+research and gives suggestion for future work.
