@@ -4,7 +4,7 @@
 
 \def\update{2018/10/25 v1.0}
 
-\newcommand{\journalname}{Applied Intelligence and Computing}
+\newcommand{\journalname}{Applied Computing and Intelligence}
 \newcommand{\journalclass}{aci.cls}
 
 \NeedsTeXFormat{LaTeX2e}
@@ -310,6 +310,12 @@
     \let\doilinkitem=\relax%
   }%
 }
+
+\def\doilink#1{\@ifundefined{href}
+ {{http://dx.doi.org/#1}}
+  {\href{http://dx.doi.org/#1}{{#1}}}
+ } 
+
 \let\Emph\emph
 \def\bibitem{\let\emph\Emph\@ifnextchar[{\@ltestbibitem}{\@testbibitem}}
 \def\@testbibitem#1{\@ifnextchar({\@mrtestbibitem{#1}}{\@doitestbibitem{#1}}}
@@ -352,7 +358,7 @@
 
 \def\dateinfo{%
 % {\fontsize{7.5}{6.5\p@}\selectfont
-  Received \Received, Accepted \Accepted, Published \Published}
+  Received \Received, Revised \Revised, Accepted \Accepted, Published \Published}
 
 \def\journalinfo{%
 %  {\fontsize{9}{6.5\p@}\selectfont
@@ -362,7 +368,7 @@
 }
 
 %\def\volinfonew{Applied Intelligence and Computing, \currentvolume (\currentissue)}
-\def\volinfonew{Applied Intelligence and Computing}
+\def\volinfonew{Applied Computing and Intelligence}
 \def\volinfo{Volume \currentvolume, Issue \currentissue}
 
 %\def\Publname{%
@@ -377,7 +383,7 @@
     \noindent%\hspace*{-12pt}
     \begin{tabular}[b]{l}
      \includegraphics[width=0.2\textwidth]{logo_new.pdf} \\[1ex]
-     \href{http://http://www.aimsciences.org/journal/aimsaci}{http://www.aimsciences.org/journal/aimsaci}
+     \href{https://www.aimspress.com/journal/aci}{https://www.aimspress.com/journal/aci}
     \end{tabular}
     \hfill
     \begin{tabular}[b]{l}
@@ -385,8 +391,9 @@
       \pageinfonew\\
       \journalinfo \\
        Received: \Received \\
+       Revised: \Revised \\
       Accepted: \Accepted \\
-      Published: \Published \\ [2ex]
+      Published: \Published \\ [-2.7ex]
     \end{tabular}  \par
     \noindent\rule{\textwidth}{1mm}
 }}%
@@ -402,7 +409,24 @@
 
 \def\shortauthors#1{\def\shortauthor{#1}}
 
+\let\@shortauthors\@empty
+\gdef\copyrightinfo{%
+\begin{minipage}[l]{0.3\linewidth}
+\includegraphics[width=0.9\textwidth]{logobottom.pdf}
+\end{minipage}
+\hfill
+\begin{minipage}[l]{0.6\linewidth}
+  \copyright\,\currentyear\, \shortauthor,
+  licensee AIMS Press. This is an open access article distributed under
+  the terms of the Creative Commons Attribution License
+  (\href{http://creativecommons.org/licenses/by/4.0}%
+   {\rmfamily http://creativecommons.org/licenses/by/4.0})
+\end{minipage}
+  }
 
+\AtEndDocument{%
+  \vspace{1em}
+  \noindent\copyrightinfo}
 
 \hyphenation{com-mu-ni-ca-tions}
 
